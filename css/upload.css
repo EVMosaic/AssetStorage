@@ -50,49 +50,55 @@ body {
   background-color: #333;
   color: white; }
 
-nav {
-  display: flex; }
-
 h1 {
   font-size: 40px;
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
-  padding: 25px;
-  border-bottom: solid #333 5px; }
+  padding: 25px; }
+
+.header {
+  background-color: crimson;
+  width: calc(50% + 20px);
+  min-width: 300px;
+  margin: 0 auto;
+  border: solid #DDD 5px;
+  border-bottom: solid #DDD 4px;
+  border-top: 0; }
 
 .asset-type-list-container {
+  background-color: crimson;
   width: calc(50% + 20px);
+  min-width: 300px;
   margin: 0 auto;
-  background-color: slategrey;
   padding: 0;
   padding-bottom: 30px;
-  border: solid white 5px;
+  border: solid #DDD 5px;
   border-bottom: 0;
   border-top: 0; }
 
 .asset-type-list {
-  height: 60px;
-  display: flex;
-  width: 100%;
-  justify-content: space-around; }
+  height: 40px;
+  display: flex; }
 
 .asset-type {
-  flex: 1;
+  background-color: crimson;
+  color: white;
+  font-family: "Arsenal", sans-serif;
+  font-size: 20px;
   text-align: center;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: white;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  border: solid #333 5px;
-  border-bottom: solid #333 4px;
+  border: solid #DDD 4px;
+  border-bottom: solid #DDD 4px;
   border-top: 0;
-  color: slategrey;
-  font-size: 20px;
-  font-family: "Arsenal", sans-serif;
-  margin: 0 2px; }
+  margin: 0 3px; }
   .asset-type:first-child {
+    background-color: #DDD;
+    color: crimson;
     margin-left: 0;
     border-left: none;
     border-bottom-left-radius: 0; }
@@ -103,12 +109,13 @@ h1 {
 
 .upload-form {
   margin: 0 auto;
-  background-color: slategrey;
+  background-color: crimson;
   width: 50%;
+  min-width: 280px;
   padding: 10px;
   padding-top: 0;
-  height: calc(100vh - 195px);
-  border: solid white 5px;
+  min-height: calc(100vh - 175px);
+  border: solid #DDD 5px;
   border-top: none;
   border-bottom: none; }
 
@@ -120,7 +127,7 @@ h1 {
 .form-label {
   display: block;
   font-family: "Josefin Sans", sans-serif;
-  color: #DDD;
+  color: white;
   font-size: 13pt; }
 
 .upload-item {
@@ -132,5 +139,10 @@ h1 {
   padding: 7px;
   text-align: center;
   border: solid #333 4px; }
+
+#upload {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px; }
 
 /*# sourceMappingURL=upload.css.map */
