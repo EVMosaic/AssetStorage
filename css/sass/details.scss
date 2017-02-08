@@ -1,16 +1,74 @@
 @import 'reset';
 @import 'colors';
 @import 'fonts';
+@import 'main';
 
-body {
-	background-color: $MLOrange;
-	color: white;
-}
 
 nav {
-	background-color: $MLBlue;
+	background-color: $main-color;
 	display: flex;
 	height: 60px;
+	border-bottom: solid 5px $border-color;
+	// padding-bottom: 15px;
+	// align-items: baseline;
+	justify-content: space-between;
+}
+
+h1 {
+	padding: 0;
+	padding-left: 10px;
+}
+
+.asset-title {
+	// flex: 1 1 auto;
+	padding-top: 20px;
+	flex: 10;
+	text-align: left;
+}
+
+.icon {
+	width: 30px;
+	flex: 1;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    border: solid $border-color 4px;
+    border-bottom: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-left: 5px;
+    margin-top: 10px;
+	// flex: 1 1 40px;
+}
+
+.main-download {
+	// margin-right:20px;
+	font-family: $label-font;
+	// border-left: solid $border-color 5px;
+	// height: 60px;
+	padding-left: 15px;
+	background-color: $main-color;
+	border-top-left-radius: 30px;
+	border: solid $border-color 4px;
+	border-bottom: none;
+	border-right: none;
+	// margin-top: -10px;
+}
+
+.main-download-text {
+	font-size: 20px;
+	display: inline-block;
+	margin-top: 15px;
+}
+
+.main-down-arrow {
+	font-size: 35px;
+	display: inline-block;
+	margin-left: 3px;
+	margin-right: 5px;
+
 }
 
 .content {
@@ -18,64 +76,168 @@ nav {
 }
 
 .asset-viewer {
-	border: solid red 2px;
+	/*border: solid red 2px;*/
 	flex: 1;
 	height: calc(100vh - 64px);
 }
 
 .main-asset {
 	text-align: center;
-	padding:20px;
-	padding-top: 40px;
-	padding-bottom: 30px;
+	padding:30px;
+	padding-left: 25px;
+	// padding-top: 40px;
+	// padding-bottom: 30px;
+	border-bottom: solid 5px $border-color;
+	img {
+		border: solid $border-color 5px;
+		border-radius: 10px;
+	}
 }
 
 
 .alt-view-container {
-	margin-top: 10px;
-	padding: 0 20px;
-	border: solid white 2px;
+	// margin-top: 10px;
+	padding: 20px 20px;
+	/*border: solid white 2px;*/
 	display: flex;
 	justify-content: space-between;
+	// border-left: solid $border-color 5px;
+	border-right: none;
+	border-top: none;
+	// height: 100%;
+
+	// background-color: $main-color;
 }
 
 .alt-view {
+	border-radius: 5px;
+	
+	img {
+	border: solid $border-color 4px;
+		border-radius: 5px;
+		padding:0;
 
+	}
+
+}
+.active {
+	img {
+		border-color: $main-color;
+	}
+}
+
+.arrow {
+	font-size: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: $info-font;
 }
 
 .asset-info-container {
 	flex: 1;
-	border: solid green 2px;
+	border-left: solid $border-color 5px;
+	min-height: 100vh;
+	font-family: $label-font;
 
-	/*text-align: center;*/
 }
 
+//data for main asset
 .asset-info {
-	padding: 20px;
+	// padding: 20px;
+	font-size: 26px;
+	display: flex;
+	flex-wrap: wrap;
+	border-bottom: solid $border-color 4px;
+	justify-content: flex-end;
 }
 
 .asset-info-item {
 	display: block;
+	flex:1 1 100%;
+	padding: 3px;
+	margin-left: 12px;
+
+	&:first-child {
+		margin-top: 12px;
+	}
+	// margin: 5px;
+}
+
+.asset-info-label {
+	display: inline-block;
+	background-color: $main-color;
+	padding: 4px;
+	border-radius: 3px;
+}
+
+.asset-info-data {
+	display: inline-block;
+	background-color: $border-color;
+	padding: 4px;
+	color: $background-color;
+	border-radius: 3px;
 }
 
 .supporting-asset {
-	padding: 20px;
+	// padding: 20px;
 	display: flex;
+	flex-wrap: wrap;
 	flex: 1;
-	border: solid yellow 2px;
+	justify-content: flex-end;
+	border-bottom: solid $border-color 4px;
+
+	&:last-child {
+		// border-bottom: none;
+	}
+
 }
 
 .supporting-asset-preview{
-	margin-right: 20px;
-
+	margin: 20px;
+	width: 110px;
+	img {
+		border-radius: 8px;
+		border: solid $border-color 5px;
+	 }
 }
 
 .supporting-asset-info {
-	flex: 1;
+	flex: 1 1 auto;
 
 }
 
 .supporting-asset-info-item {
 	display: block;
+}
+
+.mini-download {
+	// margin-right:20px;
+	font-family: $label-font;
+	background-color: $main-color;
+	margin-top: -38px;
+	border-top-left-radius: 25px;
+	border: solid $border-color 3px;
+	border-bottom: none;
+	border-right: none;
+	padding: 5px;
+	align-self: flex-end;
+	// border-left: solid $border-color 5px;
+	// height: 60px;
+	// padding-left: 20px;
+}
+
+.mini-download-text {
+	font-size: 15px;
+	margin-left: 8px;
+	// display: inline-block;
+	// margin-top: 22px;
+}
+
+.mini-down-arrow {
+	font-size: 22px;
+	// display: inline-block;
+	margin-left: 5px;
+
 }
 
