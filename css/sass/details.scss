@@ -1,0 +1,81 @@
+@import 'reset';
+@import 'colors';
+@import 'fonts';
+
+body {
+	background-color: $MLOrange;
+	color: white;
+}
+
+nav {
+	background-color: $MLBlue;
+	display: flex;
+	height: 60px;
+}
+
+.content {
+	display: flex;
+}
+
+.asset-viewer {
+	border: solid red 2px;
+	flex: 1;
+	height: calc(100vh - 64px);
+}
+
+.main-asset {
+	text-align: center;
+	padding:20px;
+	padding-top: 40px;
+	padding-bottom: 30px;
+}
+
+
+.alt-view-container {
+	margin-top: 10px;
+	padding: 0 20px;
+	border: solid white 2px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.alt-view {
+
+}
+
+.asset-info-container {
+	flex: 1;
+	border: solid green 2px;
+
+	/*text-align: center;*/
+}
+
+.asset-info {
+	padding: 20px;
+}
+
+.asset-info-item {
+	display: block;
+}
+
+.supporting-asset {
+	padding: 20px;
+	display: flex;
+	flex: 1;
+	border: solid yellow 2px;
+}
+
+.supporting-asset-preview{
+	margin-right: 20px;
+
+}
+
+.supporting-asset-info {
+	flex: 1;
+
+}
+
+.supporting-asset-info-item {
+	display: block;
+}
+

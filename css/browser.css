@@ -1,0 +1,120 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Arsenal|Arvo|Contrail+One|Didact+Gothic|Josefin+Sans|Rajdhani|Rokkitt|Squada+One");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background-color: #bc4d1c;
+  color: white; }
+
+.asset-nav {
+  background-color: #00355f;
+  display: flex;
+  height: 60px; }
+
+.asset-type {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  border-left: solid 4px white;
+  border-bottom: solid 4px white; }
+  .asset-type:first-child {
+    border-left: none; }
+
+.content {
+  display: flex; }
+
+.search-container {
+  border: solid 5px green;
+  height: calc(100vh - 70px);
+  width: 25%;
+  display: flex;
+  flex-direction: column; }
+
+.search-box {
+  margin: 20px 0;
+  font-family: "Contrail One", cursive;
+  font-size: 1.25em;
+  padding: 5px; }
+
+.tag {
+  background-color: #9b9da0;
+  font-family: "Contrail One", cursive;
+  text-align: center;
+  border: solid 2px white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.5em; }
+  .tag span {
+    text-align: center; }
+
+.asset-list {
+  border: solid 5px pink;
+  width: 75%;
+  padding: 20px; }
+
+.asset-item {
+  display: flex;
+  border: solid 5px red; }
+
+.asset-preview {
+  flex: 1;
+  padding: 20px; }
+
+.asset-info {
+  flex: 3; }
+  .asset-info p {
+    padding: 20px;
+    font-family: "Rokkitt", serif;
+    font-size: 1.25em; }
+
+.asset-info-item {
+  display: block;
+  margin: 10px 0; }
+
+/*# sourceMappingURL=browser.css.map */

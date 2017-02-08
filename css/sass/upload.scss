@@ -1,0 +1,135 @@
+@import 'reset';
+@import 'colors';
+@import 'fonts';
+
+$color1: slategrey; //deepskyblue crimson lightskyblue slategrey
+$border-color: #DDD;
+
+body {
+	background-color:#333;
+	color: white;
+}
+
+nav {
+	// background-color: $MLGrey;
+	// background-color: ;
+	// border-bottom: solid $border-color 5px;
+	display: flex;
+}
+
+h1 {
+	font-size: 40px;
+	text-align: center;
+	font-family: $font2;
+	padding: 25px;
+	border-bottom: solid #333 5px;
+}
+
+.new-upload {
+	// height:
+}
+
+.asset-type-list-container {
+	width: calc(50% + 20px);
+	margin: 0 auto;
+	background-color: $color1;
+	padding: 0;
+	padding-bottom: 30px;
+    border: solid white 5px;
+    border-bottom: 0;
+    border-top: 0;
+}
+
+.asset-type-list {
+	height: 60px;
+	display: flex;
+	// border: yellow solid 5px;
+	width: 100%;
+	justify-content: space-around;
+}
+
+.asset-type {
+	flex: 1;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	// border: green solid 5px;
+	background-color: white;
+	border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+	border: solid #333 5px;
+    border-bottom: solid #333 4px;
+    border-top: 0;
+    color: $color1;
+    font-size: 20px;
+    font-family: $font1;
+	margin: 0 2px;
+
+	&:first-child {
+		margin-left: 0;
+		border-left: none;
+		// border-right: none;
+		border-bottom-left-radius: 0;
+	}
+	&:last-child {
+		margin-right: 0;
+		border-right: none;
+		// border-left: none;
+		border-bottom-right-radius: 0;
+	}
+}
+
+.upload-form {
+	// display: flex;
+	// border: purple solid 5px;
+	// flex-wrap: wrap;
+	// margin: 20px;
+	margin: 0 auto;
+	background-color: $color1;
+	width: 50%;
+	padding: 10px;
+	padding-top: 0;
+	height: calc(100vh - 195px);
+	border: solid white 5px;
+    border-top: none;
+    border-bottom: none;
+}
+
+.upload-item-container {
+	flex: 1 1 100%;
+	text-align: center;
+	// border: black solid 5px;
+	margin-bottom: 10px;
+}
+
+.form-label {
+	display: block;
+	font-family: $font2;
+	// color: #86ffce;
+	color: $border-color;
+	font-size: 13pt;
+}
+
+.upload-item {
+	// border: red solid 5px;
+	width: 250px;
+	font-size: 1.1em;
+	font-family: $button-font;
+	margin: 10px;
+	border-radius: 15px;
+	padding: 7px;
+	text-align: center;
+	border: solid #333 4px;
+}
+
+button {
+}
+
+// input {
+// 	width: 400px;
+// 	font-size: 1.5em;
+// }
+// input[type="file"] {
+// 	// opacity: ;
+// }

@@ -1,0 +1,136 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Arsenal|Arvo|Contrail+One|Didact+Gothic|Josefin+Sans|Rajdhani|Rokkitt|Squada+One");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background-color: #333;
+  color: white; }
+
+nav {
+  display: flex; }
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  padding: 25px;
+  border-bottom: solid #333 5px; }
+
+.asset-type-list-container {
+  width: calc(50% + 20px);
+  margin: 0 auto;
+  background-color: slategrey;
+  padding: 0;
+  padding-bottom: 30px;
+  border: solid white 5px;
+  border-bottom: 0;
+  border-top: 0; }
+
+.asset-type-list {
+  height: 60px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around; }
+
+.asset-type {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: solid #333 5px;
+  border-bottom: solid #333 4px;
+  border-top: 0;
+  color: slategrey;
+  font-size: 20px;
+  font-family: "Arsenal", sans-serif;
+  margin: 0 2px; }
+  .asset-type:first-child {
+    margin-left: 0;
+    border-left: none;
+    border-bottom-left-radius: 0; }
+  .asset-type:last-child {
+    margin-right: 0;
+    border-right: none;
+    border-bottom-right-radius: 0; }
+
+.upload-form {
+  margin: 0 auto;
+  background-color: slategrey;
+  width: 50%;
+  padding: 10px;
+  padding-top: 0;
+  height: calc(100vh - 195px);
+  border: solid white 5px;
+  border-top: none;
+  border-bottom: none; }
+
+.upload-item-container {
+  flex: 1 1 100%;
+  text-align: center;
+  margin-bottom: 10px; }
+
+.form-label {
+  display: block;
+  font-family: "Josefin Sans", sans-serif;
+  color: #DDD;
+  font-size: 13pt; }
+
+.upload-item {
+  width: 250px;
+  font-size: 1.1em;
+  font-family: "Contrail One", cursive;
+  margin: 10px;
+  border-radius: 15px;
+  padding: 7px;
+  text-align: center;
+  border: solid #333 4px; }
+
+/*# sourceMappingURL=upload.css.map */
