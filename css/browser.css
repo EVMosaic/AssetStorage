@@ -74,6 +74,9 @@ h1 {
   border-top-right-radius: 20px;
   margin-left: 5px;
   margin-top: 10px; }
+  .icon:hover {
+    background-color: #DDD;
+    color: crimson; }
 
 .asset-type-list {
   height: 40px;
@@ -105,6 +108,9 @@ h1 {
     margin-right: 0;
     border-right: none;
     border-bottom-right-radius: 0; }
+  .asset-type:hover {
+    background-color: #DDD;
+    color: crimson; }
 
 nav {
   background-color: crimson;
@@ -191,6 +197,8 @@ h1 {
   flex: 1 1 auto;
   text-align: center;
   border-radius: 4px; }
+  .tag:hover {
+    background-color: crimson; }
 
 .selected {
   background-color: crimson;
@@ -211,6 +219,8 @@ h1 {
   .asset-preview img {
     border-radius: 5px;
     border: solid #DDD 4px; }
+    .asset-preview img:hover {
+      border-color: crimson; }
 
 .asset-info {
   flex: 3; }

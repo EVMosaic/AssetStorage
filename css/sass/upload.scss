@@ -63,6 +63,12 @@
 	padding: 7px;
 	text-align: center;
 	border: solid $background-color 4px;
+
+	&:active {
+			background-color: $background-color;
+			color: $border-color;
+			border-color: $border-color;
+		}
 }
 
 #upload {

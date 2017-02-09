@@ -74,6 +74,9 @@ h1 {
   border-top-right-radius: 20px;
   margin-left: 5px;
   margin-top: 10px; }
+  .icon:hover {
+    background-color: #DDD;
+    color: crimson; }
 
 .asset-type-list {
   height: 40px;
@@ -105,6 +108,9 @@ h1 {
     margin-right: 0;
     border-right: none;
     border-bottom-right-radius: 0; }
+  .asset-type:hover {
+    background-color: #DDD;
+    color: crimson; }
 
 nav {
   background-color: crimson;
@@ -125,6 +131,9 @@ h1 {
   border: solid #DDD 4px;
   border-bottom: none;
   border-right: none; }
+  .main-download:hover {
+    background-color: #DDD;
+    color: crimson; }
 
 .main-download-text {
   font-size: 20px;
@@ -168,6 +177,8 @@ h1 {
     border: solid #DDD 4px;
     border-radius: 5px;
     padding: 0; }
+    .alt-view img:hover {
+      border-color: crimson; }
 
 .active img {
   border-color: crimson; }
@@ -178,6 +189,8 @@ h1 {
   justify-content: center;
   flex-direction: column;
   font-family: "Rokkitt", serif; }
+  .arrow:hover {
+    color: crimson; }
 
 .asset-info-container {
   flex: 1;
@@ -225,6 +238,8 @@ h1 {
   .supporting-asset-preview img {
     border-radius: 8px;
     border: solid #DDD 5px; }
+    .supporting-asset-preview img:hover {
+      border-color: crimson; }
 
 .supporting-asset-info {
   flex: 1 1 auto; }
@@ -242,6 +257,9 @@ h1 {
   border-right: none;
   padding: 5px;
   align-self: flex-end; }
+  .mini-download:hover {
+    background-color: #DDD;
+    color: crimson; }
 
 .mini-download-text {
   font-size: 15px;

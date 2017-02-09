@@ -74,6 +74,9 @@ h1 {
   border-top-right-radius: 20px;
   margin-left: 5px;
   margin-top: 10px; }
+  .icon:hover {
+    background-color: #DDD;
+    color: crimson; }
 
 .asset-type-list {
   height: 40px;
@@ -105,6 +108,9 @@ h1 {
     margin-right: 0;
     border-right: none;
     border-bottom-right-radius: 0; }
+  .asset-type:hover {
+    background-color: #DDD;
+    color: crimson; }
 
 .header {
   background-color: crimson;
@@ -158,6 +164,10 @@ h1 {
   padding: 7px;
   text-align: center;
   border: solid #333 4px; }
+  .upload-item:active {
+    background-color: #333;
+    color: #DDD;
+    border-color: #DDD; }
 
 #upload {
   width: 100%;

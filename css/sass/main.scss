@@ -32,6 +32,11 @@ h1 {
     margin-left: 5px;
     margin-top: 10px;
 	// flex: 1 1 40px;
+
+	&:hover {
+		background-color: $border-color;
+		color: $main-color;
+	}
 }
 
 .asset-type-list {
@@ -67,5 +72,10 @@ h1 {
 		margin-right: 0;
 		border-right: none;
 		border-bottom-right-radius: 0;
+	}
+
+	&:hover {
+		background-color: $border-color;
+		color: $main-color;
 	}
 }

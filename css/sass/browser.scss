@@ -124,9 +124,9 @@ h1 {
 	text-align: center;
 	border-radius: 4px;
 
-	// &:hover {
-	// 	background-color: $main-color;
-	// }
+	&:hover {
+		background-color: $main-color;
+	}
 }
 
 .selected {
@@ -153,6 +153,9 @@ h1 {
 	img {
 		border-radius: 5px;
 		border: solid $border-color 4px;
+		&:hover {
+			border-color: $main-color;
+		}
 	}
 	// display: flex;
 	// justify-content: center;
