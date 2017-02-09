@@ -56,25 +56,24 @@ h1 {
   font-family: "Josefin Sans", sans-serif;
   padding: 25px; }
 
-.header {
-  background-color: crimson;
-  width: calc(50% + 20px);
-  min-width: 300px;
-  margin: 0 auto;
-  border: solid #DDD 5px;
-  border-bottom: solid #DDD 4px;
-  border-top: 0; }
+.asset-title {
+  padding-top: 20px;
+  flex: 10;
+  text-align: left; }
 
-.asset-type-list-container {
-  background-color: crimson;
-  width: calc(50% + 20px);
-  min-width: 300px;
-  margin: 0 auto;
-  padding: 0;
-  padding-bottom: 30px;
-  border: solid #DDD 5px;
-  border-bottom: 0;
-  border-top: 0; }
+.icon {
+  flex: 0 0 87px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border: solid #DDD 4px;
+  border-bottom: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-left: 5px;
+  margin-top: 10px; }
 
 .asset-type-list {
   height: 40px;
@@ -106,6 +105,26 @@ h1 {
     margin-right: 0;
     border-right: none;
     border-bottom-right-radius: 0; }
+
+.header {
+  background-color: crimson;
+  width: calc(50% + 20px);
+  min-width: 300px;
+  margin: 0 auto;
+  border: solid #DDD 5px;
+  border-bottom: solid #DDD 4px;
+  border-top: 0; }
+
+.asset-type-list-container {
+  background-color: crimson;
+  width: calc(50% + 20px);
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: 30px;
+  border: solid #DDD 5px;
+  border-bottom: 0;
+  border-top: 0; }
 
 .upload-form {
   margin: 0 auto;

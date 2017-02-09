@@ -4,21 +4,44 @@
 	<link rel="stylesheet" type="text/css" href="../css/browser.css">
 </head>
 <body>
-	 <nav>
-		<ul class="asset-nav">
-			<li class="asset-type">Models</li>
-			<li class="asset-type">Textures</li>
-			<li class="asset-type">HDRs</li>
-		</ul>
+	<nav>
+		<h1 class="asset-title"> Browse Assets </h1>
+		<div class="search-container">
+			<input type="search" class="search-box" placeholder="Search for asset..." />
+		</div>
+		<div class="icon search"><span>&#128366;</span></div>
+		<div class="icon new-asset"> <span>+</span> </div>
 	</nav>
+		<div class="asset-type-list-container">
+		<ul class="asset-type-list">
+			<li class="asset-type"><span>Model</span></li>
+			<li class="asset-type"><span>Texture</span></li>
+			<li class="asset-type"><span>HDR</span></li>
+			<li class="asset-type"><span>Script</span></li>
+		</ul>
+	</div>
 	<div class="content">	
-		<div class="search-container"> 
-			<input type="search" class="search-box">
-			<p class="tag"> <span>Pipes </span></p>
-			<p class="tag"> <span>Cranes</span> </p>
-			<p class="tag"> <span>Office</span> </p>
-			<p class="tag"> <span>Sprinklers</span> </p>
-			<p class="tag"> <span>Screws</span> </p>
+		<div class="tag-container"> 
+			<h2 class="tag-header"> Tags </h2>
+			<ul class="tag-list">
+				<li class="tag"> Pipes </li>
+				<li class="tag"> Cranes </li>
+				<li class="tag"> Office </li>
+				<li class="tag selected"> Sprinklers </li>
+				<li class="tag"> Screws </li>
+				<li class="tag"> Vehicles </li>
+				<li class="tag selected"> Tools </li>
+				<li class="tag"> Signs </li>
+				<li class="tag"> Decorative </li>
+				<li class="tag"> Meters </li>
+				<li class="tag"> Roads </li>
+				<li class="tag"> Utility Poles </li>
+				<li class="tag selected"> Plants</li>
+				<li class="tag"> People </li>
+				<li class="tag"> Wires </li>
+				<li class="tag"> Buildings </li>
+				<li class="tag"> Food </li>
+			</ul>
 		</div>
 		<div class="asset-list"> 
 			<div class="asset-item">

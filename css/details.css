@@ -56,6 +56,56 @@ h1 {
   font-family: "Josefin Sans", sans-serif;
   padding: 25px; }
 
+.asset-title {
+  padding-top: 20px;
+  flex: 10;
+  text-align: left; }
+
+.icon {
+  flex: 0 0 87px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border: solid #DDD 4px;
+  border-bottom: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-left: 5px;
+  margin-top: 10px; }
+
+.asset-type-list {
+  height: 40px;
+  display: flex; }
+
+.asset-type {
+  background-color: crimson;
+  color: white;
+  font-family: "Arsenal", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: solid #DDD 4px;
+  border-bottom: solid #DDD 4px;
+  border-top: 0;
+  margin: 0 3px; }
+  .asset-type:first-child {
+    background-color: #DDD;
+    color: crimson;
+    margin-left: 0;
+    border-left: none;
+    border-bottom-left-radius: 0; }
+  .asset-type:last-child {
+    margin-right: 0;
+    border-right: none;
+    border-bottom-right-radius: 0; }
+
 nav {
   background-color: crimson;
   display: flex;
@@ -66,26 +116,6 @@ nav {
 h1 {
   padding: 0;
   padding-left: 10px; }
-
-.asset-title {
-  padding-top: 20px;
-  flex: 10;
-  text-align: left; }
-
-.icon {
-  width: 30px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 38px;
-  border: solid #DDD 4px;
-  border-bottom: none;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  margin-left: 5px;
-  margin-top: 10px; }
 
 .main-download {
   font-family: "Josefin Sans", sans-serif;
@@ -170,13 +200,12 @@ h1 {
   .asset-info-item:first-child {
     margin-top: 12px; }
 
-.asset-info-label {
+.asset-info-data {
   display: inline-block;
-  background-color: crimson;
   padding: 4px;
   border-radius: 3px; }
 
-.asset-info-data {
+.asset-info-label {
   display: inline-block;
   background-color: #DDD;
   padding: 4px;
