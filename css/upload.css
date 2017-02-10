@@ -169,6 +169,44 @@ h1 {
     color: #DDD;
     border-color: #DDD; }
 
+.tag-box {
+  border-radius: 20px;
+  width: 80%;
+  min-height: 4em;
+  background-color: white;
+  border: solid #333 4px;
+  margin: 10px auto;
+  text-align: start;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  align-items: flex-start; }
+
+.tag-container {
+  color: white;
+  font-family: "Contrail One", cursive;
+  background: crimson;
+  padding-left: 5px;
+  border-radius: 5px;
+  border: solid #333 3px;
+  margin: 3px 3px;
+  display: flex;
+  align-items: center; }
+
+.tag-text {
+  padding: 0px;
+  margin-right: 8px; }
+
+.tag-close {
+  border-left: solid #333 2px;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 10px; }
+  .tag-close:hover {
+    background-color: #DDD;
+    color: #333;
+    cursor: pointer; }
+
 #upload {
   width: 100%;
   margin: 0 auto;
