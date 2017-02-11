@@ -76,14 +76,14 @@ h1 {
   margin-top: 10px; }
   .icon:hover {
     background-color: #DDD;
-    color: crimson; }
+    color: slategrey; }
 
 .asset-type-list {
   height: 40px;
   display: flex; }
 
 .asset-type {
-  background-color: crimson;
+  background-color: slategrey;
   color: white;
   font-family: "Arsenal", sans-serif;
   font-size: 20px;
@@ -100,7 +100,7 @@ h1 {
   margin: 0 3px; }
   .asset-type:first-child {
     background-color: #DDD;
-    color: crimson;
+    color: slategrey;
     margin-left: 0;
     border-left: none;
     border-bottom-left-radius: 0; }
@@ -110,10 +110,10 @@ h1 {
     border-bottom-right-radius: 0; }
   .asset-type:hover {
     background-color: #DDD;
-    color: crimson; }
+    color: slategrey; }
 
 nav {
-  background-color: crimson;
+  background-color: slategrey;
   display: flex;
   height: 60px;
   border-bottom: solid 5px #DDD;
@@ -126,14 +126,14 @@ h1 {
 .main-download {
   font-family: "Josefin Sans", sans-serif;
   padding-left: 15px;
-  background-color: crimson;
+  background-color: slategrey;
   border-top-left-radius: 30px;
   border: solid #DDD 4px;
   border-bottom: none;
   border-right: none; }
   .main-download:hover {
     background-color: #DDD;
-    color: crimson; }
+    color: slategrey; }
 
 .main-download-text {
   font-size: 20px;
@@ -178,10 +178,10 @@ h1 {
     border-radius: 5px;
     padding: 0; }
     .alt-view img:hover {
-      border-color: crimson; }
+      border-color: slategrey; }
 
 .active img {
-  border-color: crimson; }
+  border-color: slategrey; }
 
 .arrow {
   font-size: 30px;
@@ -190,7 +190,7 @@ h1 {
   flex-direction: column;
   font-family: "Rokkitt", serif; }
   .arrow:hover {
-    color: crimson; }
+    color: slategrey; }
 
 .asset-info-container {
   flex: 1;
@@ -239,7 +239,7 @@ h1 {
     border-radius: 8px;
     border: solid #DDD 5px; }
     .supporting-asset-preview img:hover {
-      border-color: crimson; }
+      border-color: slategrey; }
 
 .supporting-asset-info {
   flex: 1 1 auto; }
@@ -249,7 +249,7 @@ h1 {
 
 .mini-download {
   font-family: "Josefin Sans", sans-serif;
-  background-color: crimson;
+  background-color: slategrey;
   margin-top: -38px;
   border-top-left-radius: 25px;
   border: solid #DDD 3px;
@@ -259,7 +259,7 @@ h1 {
   align-self: flex-end; }
   .mini-download:hover {
     background-color: #DDD;
-    color: crimson; }
+    color: slategrey; }
 
 .mini-download-text {
   font-size: 15px;

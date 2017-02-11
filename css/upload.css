@@ -76,14 +76,14 @@ h1 {
   margin-top: 10px; }
   .icon:hover {
     background-color: #DDD;
-    color: crimson; }
+    color: slategrey; }
 
 .asset-type-list {
   height: 40px;
   display: flex; }
 
 .asset-type {
-  background-color: crimson;
+  background-color: slategrey;
   color: white;
   font-family: "Arsenal", sans-serif;
   font-size: 20px;
@@ -100,7 +100,7 @@ h1 {
   margin: 0 3px; }
   .asset-type:first-child {
     background-color: #DDD;
-    color: crimson;
+    color: slategrey;
     margin-left: 0;
     border-left: none;
     border-bottom-left-radius: 0; }
@@ -110,10 +110,10 @@ h1 {
     border-bottom-right-radius: 0; }
   .asset-type:hover {
     background-color: #DDD;
-    color: crimson; }
+    color: slategrey; }
 
 .header {
-  background-color: crimson;
+  background-color: slategrey;
   width: calc(50% + 20px);
   min-width: 300px;
   margin: 0 auto;
@@ -122,7 +122,7 @@ h1 {
   border-top: 0; }
 
 .asset-type-list-container {
-  background-color: crimson;
+  background-color: slategrey;
   width: calc(50% + 20px);
   min-width: 300px;
   margin: 0 auto;
@@ -134,7 +134,7 @@ h1 {
 
 .upload-form {
   margin: 0 auto;
-  background-color: crimson;
+  background-color: slategrey;
   width: 50%;
   min-width: 280px;
   padding: 10px;

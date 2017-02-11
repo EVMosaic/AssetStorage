@@ -13,13 +13,20 @@ class MainAssetsInline(admin.TabularInline):
     extra = 0
     fk_name = "supporting_asset"
 
+class PreviewsInline(admin.TabularInline):
+    model = Asset.previews.through
+    extra = 0
+    # fk_name = "image"
+
+
 class TaggedAssetsInline(admin.TabularInline):
     model = Asset.tags.through
     extra = 0
     # fk_name = "assets"
 
+
 class AssetAdmin(admin.ModelAdmin):
-    inlines = [RelatedAssetsInline, MainAssetsInline]
+    inlines = [ RelatedAssetsInline, MainAssetsInline]
 
 
 class TagAdmin(admin.ModelAdmin):
@@ -29,3 +36,4 @@ class TagAdmin(admin.ModelAdmin):
 
 admin.site.register(Asset, AssetAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(PreviewImage)

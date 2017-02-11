@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>ML Asset Upload</title>
+	<link rel="stylesheet" type="text/css" href="../css/upload.css">
+</head>
+<body>
+	<div class="header">
+		<h1>Upload New....</h1>
+	</div>
+	<div class="asset-type-list-container">
+		<ul class="asset-type-list">
+			<li class="asset-type"><span>Model</span></li>
+			<li class="asset-type"><span>Texture</span></li>
+			<li class="asset-type"><span>HDR</span></li>
+			<li class="asset-type"><span>Script</span></li>
+		</ul>
+	</div>
+	<div class="upload">
+		<form class="upload-form">
+			<div class="upload-item-container">
+				<label for="asset-name" class="form-label"> Asset Name: </label>
+				<input type="text" name="name" id="asset-name" class="upload-item" placeholder="Enter Name of Asset..."> 
+			</div>
+			<div class="upload-item-container">
+				<label for="fbx" class="form-label"> Upload FBX file: </label>
+				<button type="button" name="model" id="fbx" class="upload-item"> FBX </button>
+			</div>
+			<div class="upload-item-container">
+				<label for="diffuse" class="form-label"> Upload Diffuse Texture: </label>
+				<button type="button" name="diffuse" id="diffuse" class="upload-item"> Diffuse Texture </button>
+			</div>
+			<div class="upload-item-container">
+				<label for="spec" class="form-label"> Upload Specular Texture: </label>
+				<button type="button" name="specular" id="spec" class="upload-item"> Specular Texture </button>
+			</div>
+			<div class="upload-item-container">
+				<label for="norm" class="form-label"> Upload Normal Map: </label>
+				<button type="button" name="normal" id="norm" class="upload-item"> Normal Map </button>
+			</div>
+			<div class="upload-item-container">
+				<label for="tag-box" class="form-label"> Enter Tags: </label>
+				<div contenteditable="true" class="tag-box"> 
+					<div class="tag-container"> <span class="tag-text"> Tool </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Meter </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Electrical </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Tool </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Meter </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Electrical </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Tool </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Meter </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Electrical </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Tool </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Meter </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Electrical </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Tool </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Meter </span> <div class="tag-close"><span>x</span></div></div>
+					<div class="tag-container"> <span class="tag-text"> Electrical </span> <div class="tag-close"><span>x</span></div></div>
+				</div>
+			</div>
+			<div class="upload-item-container">
+				<input type="submit" class="upload-item" value="Upload Asset" id="upload">
+			</div>
+
+		</form>
+	</div>
+</body>
+</html>
