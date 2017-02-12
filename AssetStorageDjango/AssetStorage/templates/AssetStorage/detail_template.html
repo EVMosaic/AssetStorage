@@ -17,7 +17,6 @@
 <div class="content">
     <div class="asset-viewer">
         <div class="main-asset">
-            <h1> {{main_asset.name}}</h1>
             <img src="{{main_asset.image.url}}">
         </div>
         <!-- end of main-asset -->
@@ -33,122 +32,58 @@
         <!-- end of alt-view-container -->
     </div>
     <!-- end of asset-viewer -->
-
     <div class="asset-info-container">
         <div class="asset-info">
             <span class="asset-info-item">
                 <span class="asset-info-label">Asset Name:</span>
-                <span class="asset-info-data">Trafic Cone.fbx</span>
+                <span class="asset-info-data">{{ asset.name }}</span>
             </span>
             <span class="asset-info-item">
                 <span class="asset-info-label">Asset Location:</span>
-                <span class="asset-info-data">C:\Assets\Traffic Cone</span>
+                <span class="asset-info-data">{{ asset.file.path }}</span>
             </span>
             <span class="asset-info-item">
                 <span class="asset-info-label">Asset Size:</span>
-                <span class="asset-info-data">12.3 Mb</span>
+                <span class="asset-info-data">{{ asset.pretty_file_size }}</span>
             </span>
-            <span class="asset-info-item">
-                <span class="asset-info-label">Asset Name:</span>
-                <span class="asset-info-data">Trafic Cone.fbx</span>
-            </span>
-            <span class="asset-info-item">
-                <span class="asset-info-label">Asset Location:</span>
-                <span class="asset-info-data">C:\Assets\Traffic Cone</span>
-            </span>
-            <span class="asset-info-item">
-                <span class="asset-info-label">Asset Size:</span>
-                <span class="asset-info-data">12.3 Mb</span>
-            </span>
+
             <div class="main-download">
                 <span class="main-download-text"> Download Asset </span>
                 <span class="main-down-arrow"> &#8681; </span>
             </div>
         </div>
         <!-- end of asset-info -->
+
         <div class="supporting-asset-container">
-            <!-- <div class="supporting-asset-main"> -->
+        {% for related in asset.related_assets.all %}
             <div class="supporting-asset">
                 <div class="supporting-asset-preview">
-                    <img src="http://placehold.it/100x100">
+                    <img src="{{related.main_preview}}">
                 </div>
                 <!-- end of suppporting-asset-preview -->
+
                 <div class="supporting-asset-info">
                     <span class="asset-info-item">
                         <span class="asset-info-label">Asset Name:</span>
-                        <span class="asset-info-data">Trafic Cone Diffuse.png</span>
+                        <span class="asset-info-data">{{ related.name }}</span>
                     </span>
                     <span class="asset-info-item">
                         <span class="asset-info-label">Asset Location:</span>
-                        <span class="asset-info-data">C:\Assets\Traffic Cone</span>
+                        <span class="asset-info-data">{{ related.file.path }}</span>
                     </span>
                     <span class="asset-info-item">
                         <span class="asset-info-label">Asset Size:</span>
-                        <span class="asset-info-data">6.1 Mb</span>
+                        <span class="asset-info-data">{{ related.pretty_file_size }}</span>
                     </span>
                 </div>
                 <div class="mini-download">
                     <span class="mini-download-text"> Download Asset </span>
                     <span class="mini-down-arrow"> &#8681; </span>
                 </div>
-            <!-- </div> -->
             <!-- end of supporting-asset-info -->
             </div>
             <!-- end of suppporting-asset -->
-
-            <div class="supporting-asset">
-                <div class="supporting-asset-preview">
-                    <img src="http://placehold.it/100x100">
-                </div>
-                <!-- end of suppporting-asset-preview -->
-                <div class="supporting-asset-info">
-                    <span class="asset-info-item">
-                        <span class="asset-info-label">Asset Name:</span>
-                        <span class="asset-info-data">Trafic Cone Specular.png</span>
-                    </span>
-                    <span class="asset-info-item">
-                        <span class="asset-info-label">Asset Location:</span>
-                        <span class="asset-info-data">C:\Assets\Traffic Cone</span>
-                    </span>
-                    <span class="asset-info-item">
-                        <span class="asset-info-label">Asset Size:</span>
-                        <span class="asset-info-data">6.1 Mb</span>
-                    </span>
-                </div>
-                <div class="mini-download">
-                    <span class="mini-download-text"> Download Asset </span>
-                    <span class="mini-down-arrow"> &#8681; </span>
-                </div>
-                <!-- end of supporting-asset-info -->
-            </div>
-            <!-- end of suppporting-asset -->
-            <div class="supporting-asset">
-                <div class="supporting-asset-preview">
-                    <img src="http://placehold.it/100x100">
-                </div>
-                <!-- end of suppporting-asset-preview -->
-                <div class="supporting-asset-info">
-                    <span class="asset-info-item">
-                        <span class="asset-info-label">Asset Name:</span>
-                        <span class="asset-info-data">Trafic Cone Normal.png</span>
-                    </span>
-                    <span class="asset-info-item">
-                        <span class="asset-info-label">Asset Location:</span>
-                        <span class="asset-info-data">C:\Assets\Traffic Cone</span>
-                    </span>
-                    <span class="asset-info-item">
-                        <span class="asset-info-label">Asset Size:</span>
-                        <span class="asset-info-data">6.1 Mb</span>
-                    </span>
-                </div>
-                <!-- end of supporting-asset-info -->
-                <div class="mini-download">
-                    <span class="mini-download-text"> Download Asset </span>
-                    <span class="mini-down-arrow"> &#8681; </span>
-                </div>
-            </div>
-
-            <!-- end of suppporting-asset -->
+        {% endfor %}
         </div>
         <!-- end of spporting-asset-container -->
     </div>
