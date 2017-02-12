@@ -1,0 +1,123 @@
+@import 'reset';
+@import 'colors';
+@import 'fonts';
+@import 'main';
+
+
+
+.header {
+	background-color: $main-color;
+	width: calc(50% + 20px);
+	min-width: 300px;
+	margin: 0 auto;
+	border: solid $border-color 5px;
+	border-bottom: solid $border-color 4px;	
+	border-top: 0;
+}
+
+.asset-type-list-container {
+	background-color: $main-color;
+	width: calc(50% + 20px);
+	min-width: 300px;
+	margin: 0 auto;
+	padding: 0;
+	padding-bottom: 30px;
+    border: solid $border-color 5px;
+    border-bottom: 0;
+    border-top: 0;
+}
+
+
+.upload-form {
+	margin: 0 auto;
+	background-color: $main-color;
+	width: 50%;
+	min-width: 280px;
+	padding: 10px;
+	padding-top: 0;
+	min-height: calc(100vh - 175px);
+	border: solid $border-color 5px;
+    border-top: none;
+    border-bottom: none;
+}
+
+.upload-item-container {
+	flex: 1 1 100%;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.form-label {
+	display: block;
+	font-family: $label-font;
+	color: white;
+	font-size: 13pt;
+}
+
+.upload-item {
+	width: 250px;
+	font-size: 1.1em;
+	font-family: $button-font;
+	margin: 10px;
+	border-radius: 15px;
+	padding: 7px;
+	text-align: center;
+	border: solid $background-color 4px;
+
+	&:active {
+			background-color: $background-color;
+			color: $border-color;
+			border-color: $border-color;
+		}
+}
+
+.tag-box {
+	border-radius: 20px;
+    width: 80%;
+    min-height: 4em;
+    background-color: white;
+    border: solid $background-color 4px;
+    margin: 10px auto;
+    text-align: start;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    align-items: flex-start;
+}
+
+.tag-container {
+	color: white;
+    font-family: $button-font;
+    background: crimson;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: solid #333 3px;
+    margin: 3px 3px;
+    display: flex;
+    align-items: center;
+}
+
+.tag-text {
+	padding: 0px;
+	margin-right: 8px;
+}
+
+.tag-close {
+	// text-align: center;
+	border-left: solid $background-color 2px;
+	padding: 4px;
+	padding-left: 8px;
+	padding-right: 10px;
+	&:hover {
+		background-color: $border-color;
+		color: $background-color;
+		cursor: pointer;
+	}
+}
+
+
+#upload {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 20px;
+}

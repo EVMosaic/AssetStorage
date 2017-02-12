@@ -1,0 +1,82 @@
+body {
+	background-color:$background-color;
+	color: white;
+}
+
+h1 {
+	font-size: 40px;
+	text-align: center;
+	font-family: $label-font;
+	padding: 25px;
+}
+
+.asset-title {
+	// flex: 1 1 auto;
+	padding-top: 20px;
+	flex: 10;
+	text-align: left;
+}
+
+.icon {
+	// width: 30px;
+	flex: 0 0 87px;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border: solid $border-color 4px;
+    border-bottom: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-left: 5px;
+    margin-top: 10px;
+	// flex: 1 1 40px;
+
+	&:hover {
+		background-color: $border-color;
+		color: $main-color;
+		cursor: pointer;
+	}
+}
+
+.asset-type-list {
+	height: 40px;
+	display: flex;
+}
+
+.asset-type {
+	background-color: $main-color;
+    color: white;
+    font-family: $nav-font;
+    font-size: 20px;
+	text-align: center;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+	border: solid $border-color 4px;
+    border-bottom: solid $border-color 4px;
+    border-top: 0;
+	margin: 0 3px;
+
+	&:first-child {
+		background-color: $border-color;
+		color: $main-color;
+		margin-left: 0;
+		border-left: none;
+		border-bottom-left-radius: 0;
+	}
+	&:last-child {
+		margin-right: 0;
+		border-right: none;
+		border-bottom-right-radius: 0;
+	}
+
+	&:hover {
+		background-color: $border-color;
+		color: $main-color;
+	}
+}

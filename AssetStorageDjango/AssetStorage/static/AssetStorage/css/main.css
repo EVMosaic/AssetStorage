@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$background-color".
-        on line 2 of E:/Git/AssetStorage/css/sass/main.scss
+        on line 2 of sass/main.scss
 
 1: body {
 2: 	background-color:$background-color;
@@ -11,7 +11,7 @@ Error: Undefined variable: "$background-color".
 7: 	font-size: 40px;
 
 Backtrace:
-E:/Git/AssetStorage/css/sass/main.scss:2
+sass/main.scss:2
 C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/script/tree/node.rb:58:in `perform'
 C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
@@ -61,4 +61,4 @@ C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/vendor/listen/lib/listen/adap
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$background-color\".\A         on line 2 of E:/Git/AssetStorage/css/sass/main.scss\A \A 1: body {\A 2: 	background-color:$background-color;\A 3: 	color: white;\A 4: }\A 5: \A 6: h1 {\A 7: 	font-size: 40px;"; }
+  content: "Error: Undefined variable: \"$background-color\".\A         on line 2 of sass/main.scss\A \A 1: body {\A 2: 	background-color:$background-color;\A 3: 	color: white;\A 4: }\A 5: \A 6: h1 {\A 7: 	font-size: 40px;"; }
