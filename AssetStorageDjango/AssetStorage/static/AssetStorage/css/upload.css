@@ -1,0 +1,215 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Arsenal|Arvo|Contrail+One|Didact+Gothic|Josefin+Sans|Rajdhani|Rokkitt|Squada+One");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background-color: #333;
+  color: white; }
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  padding: 25px; }
+
+.asset-title {
+  padding-top: 20px;
+  flex: 10;
+  text-align: left; }
+
+.icon {
+  flex: 0 0 87px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border: solid #DDD 4px;
+  border-bottom: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-left: 5px;
+  margin-top: 10px; }
+  .icon:hover {
+    background-color: #DDD;
+    color: slategrey; }
+
+.asset-type-list {
+  height: 40px;
+  display: flex; }
+
+.asset-type {
+  background-color: slategrey;
+  color: white;
+  font-family: "Arsenal", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: solid #DDD 4px;
+  border-bottom: solid #DDD 4px;
+  border-top: 0;
+  margin: 0 3px; }
+  .asset-type:first-child {
+    background-color: #DDD;
+    color: slategrey;
+    margin-left: 0;
+    border-left: none;
+    border-bottom-left-radius: 0; }
+  .asset-type:last-child {
+    margin-right: 0;
+    border-right: none;
+    border-bottom-right-radius: 0; }
+  .asset-type:hover {
+    background-color: #DDD;
+    color: slategrey; }
+
+.header {
+  background-color: slategrey;
+  width: calc(50% + 20px);
+  min-width: 300px;
+  margin: 0 auto;
+  border: solid #DDD 5px;
+  border-bottom: solid #DDD 4px;
+  border-top: 0; }
+
+.asset-type-list-container {
+  background-color: slategrey;
+  width: calc(50% + 20px);
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: 30px;
+  border: solid #DDD 5px;
+  border-bottom: 0;
+  border-top: 0; }
+
+.upload-form {
+  margin: 0 auto;
+  background-color: slategrey;
+  width: 50%;
+  min-width: 280px;
+  padding: 10px;
+  padding-top: 0;
+  min-height: calc(100vh - 175px);
+  border: solid #DDD 5px;
+  border-top: none;
+  border-bottom: none; }
+
+.upload-item-container {
+  flex: 1 1 100%;
+  text-align: center;
+  margin-bottom: 10px; }
+
+.form-label {
+  display: block;
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
+  font-size: 13pt; }
+
+.upload-item {
+  width: 250px;
+  font-size: 1.1em;
+  font-family: "Contrail One", cursive;
+  margin: 10px;
+  border-radius: 15px;
+  padding: 7px;
+  text-align: center;
+  border: solid #333 4px; }
+  .upload-item:active {
+    background-color: #333;
+    color: #DDD;
+    border-color: #DDD; }
+
+.tag-box {
+  border-radius: 20px;
+  width: 80%;
+  min-height: 4em;
+  background-color: white;
+  border: solid #333 4px;
+  margin: 10px auto;
+  text-align: start;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  align-items: flex-start; }
+
+.tag-container {
+  color: white;
+  font-family: "Contrail One", cursive;
+  background: crimson;
+  padding-left: 5px;
+  border-radius: 5px;
+  border: solid #333 3px;
+  margin: 3px 3px;
+  display: flex;
+  align-items: center; }
+
+.tag-text {
+  padding: 0px;
+  margin-right: 8px; }
+
+.tag-close {
+  border-left: solid #333 2px;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 10px; }
+  .tag-close:hover {
+    background-color: #DDD;
+    color: #333;
+    cursor: pointer; }
+
+#upload {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px; }
+
+/*# sourceMappingURL=upload.css.map */

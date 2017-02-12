@@ -1,0 +1,236 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Arsenal|Arvo|Contrail+One|Didact+Gothic|Josefin+Sans|Rajdhani|Rokkitt|Squada+One");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background-color: #333;
+  color: white; }
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  padding: 25px; }
+
+.asset-title {
+  padding-top: 20px;
+  flex: 10;
+  text-align: left; }
+
+.icon {
+  flex: 0 0 87px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border: solid #DDD 4px;
+  border-bottom: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-left: 5px;
+  margin-top: 10px; }
+  .icon:hover {
+    background-color: #DDD;
+    color: slategrey; }
+
+.asset-type-list {
+  height: 40px;
+  display: flex; }
+
+.asset-type {
+  background-color: slategrey;
+  color: white;
+  font-family: "Arsenal", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: solid #DDD 4px;
+  border-bottom: solid #DDD 4px;
+  border-top: 0;
+  margin: 0 3px; }
+  .asset-type:first-child {
+    background-color: #DDD;
+    color: slategrey;
+    margin-left: 0;
+    border-left: none;
+    border-bottom-left-radius: 0; }
+  .asset-type:last-child {
+    margin-right: 0;
+    border-right: none;
+    border-bottom-right-radius: 0; }
+  .asset-type:hover {
+    background-color: #DDD;
+    color: slategrey; }
+
+nav {
+  background-color: slategrey;
+  display: flex;
+  height: 60px;
+  border-bottom: solid 5px #DDD;
+  justify-content: space-between; }
+
+h1 {
+  padding: 0;
+  padding-left: 10px; }
+
+.icon {
+  flex: 0 0 87px; }
+
+.asset-title {
+  flex: 1; }
+
+.search-container {
+  flex: 2 1 200px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; }
+
+.search-box {
+  width: 500px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.25em;
+  padding: 5px;
+  border: solid #333 3px;
+  border-radius: 10px;
+  margin-bottom: 4px; }
+
+.asset-nav {
+  background-color: slategrey;
+  display: flex;
+  height: 60px;
+  font-family: "Josefin Sans", sans-serif; }
+
+.asset-type {
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 20px;
+  border-left: solid 4px #DDD;
+  border-bottom: solid 4px #DDD; }
+  .asset-type:first-child {
+    border-left: none; }
+
+.content {
+  display: flex; }
+
+.tag-container {
+  border: solid #ddd 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-left: none;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  align-self: flex-start; }
+
+.tag-header {
+  text-align: center;
+  font-size: 30px;
+  font-family: "Josefin Sans", sans-serif;
+  padding: 20px;
+  border-bottom: solid #DDD 5px; }
+
+.tag-list {
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 10px;
+  padding-left: 6px; }
+
+.tag {
+  color: #DDD;
+  font-family: "Contrail One", cursive;
+  font-size: 1em;
+  margin: 4px;
+  padding: 6px 12px;
+  border: solid #DDD 2px;
+  flex: 1 1 auto;
+  text-align: center;
+  border-radius: 4px; }
+  .tag:hover {
+    background-color: slategrey; }
+
+.selected {
+  background-color: slategrey;
+  color: white;
+  border: solid #DDD 2px; }
+
+.asset-list {
+  width: 50%;
+  padding: 20px;
+  margin: 0 auto; }
+
+.asset-item {
+  display: flex;
+  border-bottom: solid 2px #DDD; }
+
+.asset-preview {
+  padding: 20px; }
+  .asset-preview img {
+    border-radius: 5px;
+    border: solid #DDD 4px; }
+    .asset-preview img:hover {
+      border-color: slategrey; }
+
+.asset-info {
+  flex: 3; }
+  .asset-info p {
+    padding: 20px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.25em; }
+
+.asset-info-item {
+  display: block;
+  margin: 10px 0; }
+
+/*# sourceMappingURL=browser.css.map */
