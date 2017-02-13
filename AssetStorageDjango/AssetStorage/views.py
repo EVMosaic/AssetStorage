@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 from .models import *
+from .forms import *
 
 # Create your views here.
 class AssetDetailView(DetailView):
@@ -13,3 +15,9 @@ class AssetDetailView(DetailView):
         context['kitten'] = 'Goldberry'
         context['main_asset'] = self.get_object().previews.all()[3]
         return context
+
+class UploadView(CreateView):
+    model = Asset
+    context_object_name = 'asset'
+    template_name = 'ASsetStorage/upload_template.html'
+    form_class = AssetForm

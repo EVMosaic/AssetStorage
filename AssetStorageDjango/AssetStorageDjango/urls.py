@@ -22,6 +22,7 @@ from AssetStorage import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^test/(?P<pk>[-\w]+)/$', views.AssetDetailView.as_view(), name='asset-detail')
+    url(r'^detail/(?P<pk>[-\w]+)/$', views.AssetDetailView.as_view(), name='asset-detail'),
+    url(r'^upload/', views.UploadView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -23,9 +23,7 @@ class PreviewImage(models.Model):
 
 class Asset(models.Model):
     name = models.CharField(max_length=200)
-    path = models.CharField(max_length=300) #can delete this
     file = models.FileField(upload_to="test_folder", blank=True, null=True)
-    file_size = models.FloatField() #can delete this
     date_uploaded = models.DateField(auto_now_add=True)
     date_updated = models.DateField(auto_now=True)
     tags = models.ManyToManyField(Tag, related_name="assets", blank=True)
