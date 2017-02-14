@@ -22,6 +22,6 @@ class AssetForm(ModelForm):
                                               'id' : 'asset-name'}),
             'file' : forms.FileInput(attrs = {'class' : 'upload-item',
                                               'id' : 'main_asset'}),
-            'related_assets' : forms.
+            #'related_assets' : forms.
 
         }

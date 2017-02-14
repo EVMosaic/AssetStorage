@@ -37,3 +37,5 @@ class TagAdmin(admin.ModelAdmin):
 admin.site.register(Asset, AssetAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(PreviewImage)
+admin.site.register(SimpleAsset)
+admin.site.register(CompoundAsset)

@@ -1,5 +1,8 @@
+import os
 from django.db import models
+from django.core.files import File
 from AssetStorage import utilities
+
 
 # Create your models here.
 class Tag(models.Model):
@@ -41,15 +44,80 @@ class Asset(models.Model):
             return self.previews.all()[0].thumb.url
         except:
             return ""
-        # finally:
-        #     pass
 
     def support_preview(self):
         return self.supporting_asset.previews.all()[0].thumb.url
 
-
     class Meta:
         verbose_name = "Asset"
+
+class SimpleAsset(models.Model):
+    upload_folder = "test_folder"
+    name = models.CharField(max_length=200)
+    file = models.FileField(upload_to=upload_folder, blank=True, null=True)
+    date_uploaded = models.DateField(auto_now_add=True)
+    date_updated = models.DateField(auto_now=True)
+    tags = models.ManyToManyField(Tag, related_name="simple_assets", blank=True)
+    thumb = models.ImageField(upload_to=upload_folder, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Simple Asset"
+
+    def pretty_file_size(self):
+        return utilities.convert_size(self.file.size)
+
+    def save(self, *args, **kwargs):
+        print('before super')
+        super(SimpleAsset, self).save(*args, **kwargs)
+        print('after super')
+        print(self.pk)
+        if not self.thumb:
+            # dir, name = os.path.split(self.file.path)
+            # print(dir, name)
+            # thumb_path = os.path.join(dir, self.upload_folder, name)
+            # print(thumb_path)
+            print('file path')
+            print(self.file.path)
+            self.thumb = utilities.make_thumbnail(self.file , 75, 75)
+            print(self.thumb)
+            super(SimpleAsset, self).save(*args, **kwargs)
+            # print(self.file.name, self.file.file)
+            # self.file.save(self.file.path, self.file.file)
+            # print(self.file.path)
+            # img_path = utilities.make_thumbnail(self.file.path, 75, 75)
+            # print(img_path)
+            # img_content = File(open(img_path, 'rb'))
+            #
+            # self.thumb.save('img_path.jpg', img_content)
+            # super(SimpleAsset, self).save(*args, **kwargs)
+
+
+
+
+class CompoundAsset(models.Model):
+    name = models.CharField(max_length=200)
+    file = models.FileField(upload_to="test_folder", blank=True, null=True)
+    date_uploaded = models.DateField(auto_now_add=True)
+    date_updated = models.DateField(auto_now=True)
+    tags = models.ManyToManyField(Tag, related_name="compound_assets", blank=True)
+    related_assets = models.ManyToManyField(SimpleAsset, related_name="parents")
+    previews = models.ManyToManyField(PreviewImage, related_name="compound_assets", blank=True)
+    hero = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = "Compound Asset"
+
+    def __str__(self):
+        return self.name
+
+    def pretty_file_size(self):
+        return utilities.convert_size(self.file.size)
+
+
+
 
 
 class RelatedAssets(models.Model):
@@ -61,4 +129,6 @@ class RelatedAssets(models.Model):
 
     class Meta:
         verbose_name = "Asset"
+
+
 
