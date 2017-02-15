@@ -111,7 +111,8 @@ h1 {
     border-bottom-right-radius: 0; }
   .asset-type:hover {
     background-color: #DDD;
-    color: crimson; }
+    color: crimson;
+    cursor: pointer; }
 
 .header {
   background-color: crimson;
@@ -169,6 +170,8 @@ h1 {
     background-color: #333;
     color: #DDD;
     border-color: #DDD; }
+  .upload-item:focus {
+    outline: none; }
 
 .tag-box {
   border-radius: 20px;
@@ -177,11 +180,11 @@ h1 {
   background-color: white;
   border: solid #333 4px;
   margin: 10px auto;
-  text-align: start;
+  padding: 10px; }
+
+.tag-list {
   display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  align-items: flex-start; }
+  flex-wrap: wrap; }
 
 .tag-container {
   color: white;
@@ -196,7 +199,18 @@ h1 {
 
 .tag-text {
   padding: 0px;
-  margin-right: 8px; }
+  margin: 0;
+  min-width: 9px;
+  text-align: left;
+  white-space: nowrap; }
+  .tag-text:focus {
+    outline: none; }
+  .tag-text br {
+    display: none; }
+
+.tag-predict {
+  margin-right: 8px;
+  color: #b3b3b3; }
 
 .tag-close {
   border-left: solid #333 2px;

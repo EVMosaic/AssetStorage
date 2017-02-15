@@ -69,6 +69,9 @@
 			color: $border-color;
 			border-color: $border-color;
 		}
+	&:focus {
+		outline: none;
+	}
 }
 
 .tag-box {
@@ -78,11 +81,13 @@
     background-color: white;
     border: solid $background-color 4px;
     margin: 10px auto;
-    text-align: start;
+    // text-align: start;
+    padding: 10px;
+}
+
+.tag-list {
     display: flex;
     flex-wrap: wrap;
-    padding: 10px;
-    align-items: flex-start;
 }
 
 .tag-container {
@@ -99,7 +104,22 @@
 
 .tag-text {
 	padding: 0px;
+	margin: 0;
+	min-width: 9px;
+	text-align: left;
+	white-space: nowrap;
+    &:focus {
+    	outline: none;
+    }
+
+    br {
+    	display: none;
+    }
+}
+
+.tag-predict {
 	margin-right: 8px;
+	color: darken(white, 30%);
 }
 
 .tag-close {

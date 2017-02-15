@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
+
+import json
+
 from .models import *
 from .forms import *
 
@@ -17,7 +20,19 @@ class AssetDetailView(DetailView):
         return context
 
 class UploadView(CreateView):
-    model = Asset
+    model = SimpleAsset
     context_object_name = 'asset'
     template_name = 'ASsetStorage/upload_template.html'
-    form_class = AssetForm
+    form_class = SimpleAssetForm
+
+    def get_context_data(self, **kwargs):
+        context = super(UploadView, self).get_context_data(**kwargs)
+        tags = Tag.objects.all()
+        tag_list = []
+        for t in tags:
+            tag_list.append(t.tag)
+        json_tags = json.dumps(tag_list)
+        context['tags'] = json_tags
+        print(json_tags)
+        print(context)
+        return context

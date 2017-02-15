@@ -70,29 +70,10 @@ class SimpleAsset(models.Model):
         return utilities.convert_size(self.file.size)
 
     def save(self, *args, **kwargs):
-        print('before super')
         super(SimpleAsset, self).save(*args, **kwargs)
-        print('after super')
-        print(self.pk)
         if not self.thumb:
-            # dir, name = os.path.split(self.file.path)
-            # print(dir, name)
-            # thumb_path = os.path.join(dir, self.upload_folder, name)
-            # print(thumb_path)
-            print('file path')
-            print(self.file.path)
             self.thumb = utilities.make_thumbnail(self.file , 75, 75)
-            print(self.thumb)
             super(SimpleAsset, self).save(*args, **kwargs)
-            # print(self.file.name, self.file.file)
-            # self.file.save(self.file.path, self.file.file)
-            # print(self.file.path)
-            # img_path = utilities.make_thumbnail(self.file.path, 75, 75)
-            # print(img_path)
-            # img_content = File(open(img_path, 'rb'))
-            #
-            # self.thumb.save('img_path.jpg', img_content)
-            # super(SimpleAsset, self).save(*args, **kwargs)
 
 
 

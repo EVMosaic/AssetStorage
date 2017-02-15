@@ -17,17 +17,10 @@ def make_thumbnail(image_file, height, width):
    save_path = append_name(image_file.path, '_sm')
    thumb_path = append_name(image_file.name, '_sm')
    size = (height,width)
-   print('save path')
-   print(save_path)
-   print('thumb path')
-   print(thumb_path)
    try:
         big = Image.open(image_file)
-        print('opened image')
         thumbnail = ImageOps.fit(big, size, Image.ANTIALIAS)
-        print('made thumbnail')
         thumbnail.save(save_path,big.format)
-        print('saved thumbnail')
         big.close()
         thumbnail.close()
         return thumb_path

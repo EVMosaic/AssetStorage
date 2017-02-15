@@ -25,3 +25,26 @@ class AssetForm(ModelForm):
             #'related_assets' : forms.
 
         }
+
+
+class SimpleAssetForm(ModelForm):
+    class Meta:
+        model = SimpleAsset
+        fields = ['name', 'file', 'tags']
+        help_texts = {
+
+        }
+
+        labels = {
+            'name' : 'Asset Name:',
+            'file' : 'Upload File:'
+        }
+        widgets = {
+            'name' : forms.TextInput(attrs = {'placeholder' : 'Enter Name of Asset...',
+                                              'class' : 'upload-item',
+                                              'id' : 'asset-name'}),
+            'file' : forms.FileInput(attrs = {'class' : 'upload-item',
+                                              'id' : 'main_asset'}),
+            #'related_assets' : forms.
+
+        }

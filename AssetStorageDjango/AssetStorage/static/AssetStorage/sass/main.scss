@@ -78,5 +78,6 @@ h1 {
 	&:hover {
 		background-color: $border-color;
 		color: $main-color;
+		cursor: pointer;
 	}
 }
