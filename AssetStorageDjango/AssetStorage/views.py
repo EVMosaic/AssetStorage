@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 
+from django.core.urlresolvers import reverse
+
 from django.shortcuts import redirect
 
 import json
@@ -17,9 +19,13 @@ class AssetDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(AssetDetailView, self).get_context_data(**kwargs)
-        context['kitten'] = 'Goldberry'
         context['main_asset'] = self.get_object().previews.all()[3]
         return context
+
+class SimpleAssetView(DetailView):
+    model = SimpleAsset
+    context_object_name = 'asset'
+    template_name = 'AssetStorage/simple_detail_template.html'
 
 class UploadView(CreateView):
     model = SimpleAsset
@@ -38,3 +44,6 @@ class UploadView(CreateView):
         context['tags'] = json_tags
         return context
 
+    def get_success_url(self):
+        print('id:')
+        return reverse('simple-detail', args=(self.object.pk,))

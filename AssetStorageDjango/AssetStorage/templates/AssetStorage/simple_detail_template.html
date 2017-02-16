@@ -1,0 +1,100 @@
+{% extends 'AssetStorage/base.html' %}
+{% load staticfiles %}
+
+
+{% block head %}
+<link rel='stylesheet' type='text/css' href={% static 'AssetStorage/css/details.css' %} />
+<title>ML Asset Detail: {{asset.name}}</title>
+{%  endblock %}
+
+
+{% block content %}
+<nav>
+    <h1 class="asset-title"> {{asset.name}} </h1>
+    <div class="icon search"><span>&#128366;</span></div>
+    <div class="icon new-asset"> <span>+</span> </div>
+</nav>
+<div class="content">
+    <div class="asset-viewer">
+        <div class="main-asset">
+            <img src="{{asset.file.url}}">
+        </div>
+        <!-- end of main-asset -->
+        <ul class="alt-view-container">
+            <li class="arrow"> <span>&lt;</span> </li>
+
+            <li class="alt-view">
+                <img src="{{ asset.thumb.url }}">
+            </li>
+
+            <li class="arrow"> <span>&gt;</span> </li>
+        </ul>
+        <!-- end of alt-view-container -->
+    </div>
+    <!-- end of asset-viewer -->
+    <div class="asset-info-container">
+        <div class="asset-info">
+            <span class="asset-info-item">
+                <span class="asset-info-label">Asset Name:</span>
+                <span class="asset-info-data">{{ asset.name }}</span>
+            </span>
+            <span class="asset-info-item">
+                <span class="asset-info-label">Asset Location:</span>
+                <span class="asset-info-data">{{ asset.file.path }}</span>
+            </span>
+            <span class="asset-info-item">
+                <span class="asset-info-label">Asset Size:</span>
+                <span class="asset-info-data">{{ asset.pretty_file_size }}</span>
+            </span>
+
+            <div class="main-download">
+                <span class="main-download-text"> Download Asset </span>
+                <span class="main-down-arrow"> &#8681; </span>
+            </div>
+        </div>
+        <!-- end of asset-info -->
+
+        <div class="supporting-asset-container">
+        {% for related in asset.related_assets.all %}
+            <div class="supporting-asset">
+                <div class="supporting-asset-preview">
+                    <img src="{{related.main_preview}}">
+                </div>
+                <!-- end of suppporting-asset-preview -->
+
+                <div class="supporting-asset-info">
+                    <span class="asset-info-item">
+                        <span class="asset-info-label">Asset Name:</span>
+                        <span class="asset-info-data">{{ related.name }}</span>
+                    </span>
+                    <span class="asset-info-item">
+                        <span class="asset-info-label">Asset Location:</span>
+                        <span class="asset-info-data">{{ related.file.path }}</span>
+                    </span>
+                    <span class="asset-info-item">
+                        <span class="asset-info-label">Asset Size:</span>
+                        <span class="asset-info-data">{{ related.pretty_file_size }}</span>
+                    </span>
+                </div>
+                <div class="mini-download">
+                    <span class="mini-download-text"> Download Asset </span>
+                    <span class="mini-down-arrow"> &#8681; </span>
+                </div>
+            <!-- end of supporting-asset-info -->
+            </div>
+            <!-- end of suppporting-asset -->
+        {% endfor %}
+        </div>
+        <!-- end of spporting-asset-container -->
+    </div>
+    <!-- end of asset-info-container -->
+</div>
+<!-- end of content div -->
+{%  endblock %}
+
+
+{% block javascript %}
+{% endblock %}
+
+
+

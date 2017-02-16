@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^detail/(?P<pk>[-\w]+)/$', views.AssetDetailView.as_view(), name='asset-detail'),
     url(r'^upload/', views.UploadView.as_view()),
+    url(r'^simple/(?P<pk>[0-9]+)/', views.SimpleAssetView.as_view(), name='simple-detail')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
