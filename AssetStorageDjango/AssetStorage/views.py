@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 
+from django.shortcuts import redirect
+
 import json
 
 from .models import *
@@ -22,8 +24,9 @@ class AssetDetailView(DetailView):
 class UploadView(CreateView):
     model = SimpleAsset
     context_object_name = 'asset'
-    template_name = 'ASsetStorage/upload_template.html'
+    template_name = 'AssetStorage/upload_template.html'
     form_class = SimpleAssetForm
+    success_url = '/upload'
 
     def get_context_data(self, **kwargs):
         context = super(UploadView, self).get_context_data(**kwargs)
@@ -33,6 +36,5 @@ class UploadView(CreateView):
             tag_list.append(t.tag)
         json_tags = json.dumps(tag_list)
         context['tags'] = json_tags
-        print(json_tags)
-        print(context)
         return context
+

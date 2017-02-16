@@ -106,6 +106,9 @@ function uploadAsset(e) {
 //TODO check for empty string [X]
 //TODO normalize caps lock [ ]
 //TODO remove duplicates [ ]
+//TODO autocomplete on click away [ ]
+//TODO smoosh together predictive on submit [ ]
+//TODO shift tab between tags [ ]
 
 function displayMatch() {
 	// current_tags is currently written into the django template

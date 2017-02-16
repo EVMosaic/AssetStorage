@@ -56,6 +56,8 @@ class SimpleAssetForm(ModelForm):
                                               'id' : 'main-asset',
                                               }),
             'tags' : TagField(attrs = {'id' : 'asset-tags',
+                                       'class' : 'hidden'
+                                      }),
         }
 
 
