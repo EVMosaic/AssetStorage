@@ -26,25 +26,45 @@ class AssetForm(ModelForm):
 
         }
 
+class TagField(forms.TextInput):
+
+    def value_from_datadict(self, data, files, name):
+        raw_tags = data.get('tags')
+        split_tags = raw_tags.split(',')
+        for item in split_tags:
+            if Tag.objects.filter(tag=item).exists():
+                pass
+            else:
+                new_tag = Tag.create(item)
+                new_tag.save()
+        return Tag.objects.filter(tag__in=split_tags)
+
 
 class SimpleAssetForm(ModelForm):
     class Meta:
         model = SimpleAsset
         fields = ['name', 'file', 'tags']
-        help_texts = {
-
-        }
 
         labels = {
             'name' : 'Asset Name:',
-            'file' : 'Upload File:'
         }
         widgets = {
             'name' : forms.TextInput(attrs = {'placeholder' : 'Enter Name of Asset...',
                                               'class' : 'upload-item',
                                               'id' : 'asset-name'}),
-            'file' : forms.FileInput(attrs = {'class' : 'upload-item',
-                                              'id' : 'main_asset'}),
-            #'related_assets' : forms.
-
+            'file' : forms.FileInput(attrs = {'class' : 'hidden',
+                                              'id' : 'main-asset',
+                                              }),
+            'tags' : TagField(attrs = {'id' : 'asset-tags',
         }
+
+
+
+
+
+
+
+
+
+
+

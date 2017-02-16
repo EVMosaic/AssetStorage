@@ -1,12 +1,22 @@
 const tagbox = document.querySelector('.tag-box')
 const taglist = document.querySelector('.tag-list')
 let tags = taglist.querySelectorAll('.tag-text')
-const upload = document.querySelector('#upload');
-closeButtons = document.querySelectorAll('.tag-close');
+const upload = document.getElementById('upload');
+const tagInput = document.getElementById('asset-tags');
+let closeButtons = document.querySelectorAll('.tag-close');
+const triggers = document.querySelectorAll('.trigger');
 
+triggers.forEach(trigger => trigger.addEventListener('click', triggerInput))
 closeButtons.forEach(button => button.addEventListener('click', removeTag));
 tagbox.addEventListener('click', addTag);
 upload.addEventListener('click', collectTags);
+
+//TODO change text and display after upload to show file accpeted
+function triggerInput(e) {
+	e.preventDefault();
+	console.log('triggering input')
+	this.nextElementSibling.click();
+}
 
 function removeTag() {
 	this.parentElement.remove();
@@ -60,23 +70,26 @@ function tagFinished(e) {
 	}
 }
 
-
-function collectTags(e) {
-	e.preventDefault();
+function collectTags() {
+	console.log('collecting tags');
 	let tagl = taglist.querySelectorAll('.tag-text');
-	let tagstring = [...tagl].reduce( (acc, val) => 
+	let tagarray = [...tagl].reduce( (acc, val) => 
 	{
+		console.log('adding ' + val + ' to array');
 		if ( !val.textContent) {
 			return acc;
 		}
-		return acc + val.textContent.trim() + ':';
+		newval = val.textContent.trim()
+		console.log(newval);
+		acc.push(newval);
+		console.log(acc);
+		return acc;
 	}, 
-	'');
+	[]);
 	
-	console.log(tagstring);
-	return tagstring;
+	console.log(tagarray);
+	tagInput.value = tagarray;
 }
-
 
 function findMatches(wordToMatch, matchSet) {
 	return matchSet.filter(phrase => {
@@ -85,7 +98,14 @@ function findMatches(wordToMatch, matchSet) {
 	})
 }
 
-//TODO check for empty string
+function uploadAsset(e) {
+	e.preventDefault();
+	collectTags();
+	this.submit();
+}
+//TODO check for empty string [X]
+//TODO normalize caps lock [ ]
+//TODO remove duplicates [ ]
 
 function displayMatch() {
 	// current_tags is currently written into the django template

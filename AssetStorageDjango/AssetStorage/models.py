@@ -6,7 +6,12 @@ from AssetStorage import utilities
 
 # Create your models here.
 class Tag(models.Model):
-    tag = models.CharField(max_length=100)
+    tag = models.CharField(max_length=100, unique=True)
+
+    @classmethod
+    def create(cls, tag):
+        new_tag = Tag(tag=tag)
+        return new_tag
 
     def __str__(self):
         return self.tag

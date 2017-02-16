@@ -22,50 +22,26 @@
     </ul>
 </div>
 <div class="upload">
-    <form class="upload-form">
+    <form class="upload-form" action="" method="post">
+        {% csrf_token %}
         <div class="upload-item-container">
             <label for={{form.name.id_for_label}} class="form-label">{{form.name.label}} </label>
             {{form.name}}
         </div>
         <div class="upload-item-container">
-            <label for={{form.file.id_for_label}} class="form-label">{{form.file.label}} </label>
-            {{form.file}}
             <label for="fbx" class="form-label"> Upload FBX file: </label>
-            <button type="button" name="model" id="fbx" class="upload-item"> FBX </button>
+            <button type="button" name="model" id="main-asset-trigger" class="upload-item trigger"> Main Asset </button>
+            {{form.file}}
         </div>
-        <!--<div class="upload-item-container">-->
-            <!--<label for="diffuse" class="form-label"> Upload Diffuse Texture: </label>-->
-            <!--<button type="button" name="diffuse" id="diffuse" class="upload-item"> Diffuse Texture </button>-->
-        <!--</div>-->
-        <!--<div class="upload-item-container">-->
-            <!--<label for="spec" class="form-label"> Upload Specular Texture: </label>-->
-            <!--<button type="button" name="specular" id="spec" class="upload-item"> Specular Texture </button>-->
-        <!--</div>-->
-        <!--<div class="upload-item-container">-->
-            <!--<label for="norm" class="form-label"> Upload Normal Map: </label>-->
-            <!--<button type="button" name="normal" id="norm" class="upload-item"> Normal Map </button>-->
-        <!--</div>-->
         <div class="upload-item-container">
             <label for="tag-box" class="form-label"> Enter Tags: </label>
             <div  class="tag-box">
                 <ul class="tag-list">
-                    <!--<li class="tag-container"> <span class="tag-text"> Tool </span> <div class="tag-close"><span>x</span></div>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Meter </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Electrical </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Tool </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Meter </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Electrical </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Tool </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Meter </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Electrical </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Tool </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Meter </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Electrical </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Tool </span> <div class="tag-close"><span>x</span></div></li>-->
-                    <!--<li class="tag-container"> <span class="tag-text"> Meter </span> <div class="tag-close"><span>x</span></div></li>-->
+                    <!--the following comment is the tag structure-->
                     <!--<li class="tag-container"> <span class="tag-text"> Electrical </span> <div class="tag-close"><span>x</span></div></li>-->
                 </ul>
             </div>
+            {{form.tags}}
         </div>
         <div class="upload-item-container">
             <input type="submit" class="upload-item" value="Upload Asset" id="upload">
@@ -74,8 +50,6 @@
     </form>
 </div>
 
-
-<!--{{form}}-->
 {%  endblock %}
 
 

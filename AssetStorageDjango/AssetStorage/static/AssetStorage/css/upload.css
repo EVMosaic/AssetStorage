@@ -173,6 +173,9 @@ h1 {
   .upload-item:focus {
     outline: none; }
 
+.hidden {
+  display: none; }
+
 .tag-box {
   border-radius: 20px;
   width: 80%;
