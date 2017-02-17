@@ -217,8 +217,7 @@ h1 {
 .asset-info-data {
   display: inline-block;
   padding: 4px;
-  border-radius: 3px;
-  word-break: break-word; }
+  border-radius: 3px; }
 
 .asset-info-label {
   display: inline-block;
@@ -272,4 +271,7 @@ h1 {
   font-size: 22px;
   margin-left: 5px; }
 
-/*# sourceMappingURL=details.css.map */
+.main-asset {
+  border-bottom: none; }
+
+/*# sourceMappingURL=simple_details.css.map */
