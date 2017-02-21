@@ -78,15 +78,20 @@ class SearchView(ListView):
 
     def post(self, request, *args, **kwargs):
         print("posting!")
-        print(request.POST['tag-list'])
-        tag = request.POST['tag-list']
-        selected_tag = Tag.objects.get(pk=tag)
+        print(request.POST['selected-tags'])
+        # form_tags = request.POST['selected-tags'].split(':')
+        # print(form_tags)
+        tags = request.POST['selected-tags']
+        selected_tag = Tag.objects.get(pk=tags)
         related_assets = selected_tag.simple_assets.all().order_by('name')
-        print(Tag.objects.get(pk=request.POST['tag-list']).simple_assets.all())
-        data = []
-        print(data)
+        print(Tag.objects.get(pk=request.POST['selected-tags']).simple_assets.all())
+        tagged_assets = []
+        related_tags = []
         for asset in related_assets:
             print(asset)
+            tags = asset.tags.all()
+            for item in tags:
+                related_tags.append(item.pk)
             object_dict = {
                 'pk': asset.pk,
                 'thumb': asset.thumb.url,
@@ -94,7 +99,11 @@ class SearchView(ListView):
                 'file': asset.file.path,
                 'size': asset.pretty_file_size()
             }
-            data.append(object_dict)
+            tagged_assets.append(object_dict)
+        data = {
+            'assets' : tagged_assets,
+            'tags'   : list(set(related_tags))
+        }
         # data = serializers.serialize('json', related_assets)
         return JsonResponse(json.dumps(data), safe=False)
 

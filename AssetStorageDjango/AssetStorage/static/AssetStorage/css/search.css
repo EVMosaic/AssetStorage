@@ -238,4 +238,7 @@ h1 {
   display: block;
   margin: 10px 0; }
 
+.hidden {
+  display: none; }
+
 /*# sourceMappingURL=search.css.map */

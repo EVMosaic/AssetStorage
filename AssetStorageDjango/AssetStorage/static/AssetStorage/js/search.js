@@ -1,6 +1,6 @@
 const tags = document.querySelectorAll('.tag');
 const tag_form = document.getElementById('tag-form');
-const selected_tags = document.getElementById('tag-list');
+const selected_tags = document.getElementById('selected-tags');
 const asset_list = document.querySelector('.asset-list');
 
 tags.forEach( tag => tag.addEventListener('click', toggleSelected));
@@ -19,11 +19,13 @@ function toggleSelected(){
 }
 
 function appendTag(tag) {
+	// selected_tags.value += tag.dataset.pk + ':';
 	selected_tags.value = tag.dataset.pk;
 }
 
 function removeTag(tag) {
-	selected_tags.value = ''//selected_tags.value.replace(tag.dataset.pk + ':', '');
+	// selected_tags.value = selected_tags.value.replace(tag.dataset.pk + ':', '');
+	selected_tags.value = '';
 }
 j = {}
 
@@ -34,15 +36,14 @@ function filterTags() {
 		body: new FormData(tag_form )
 	})
 	.then(function(response) {
-		console.log("response");
 		response.json().then(function(json){
-			let new_assets = JSON.parse(json);
-			j = new_assets;
+			let django_json = JSON.parse(json);
+			j = django_json;
 			console.log(j);
 			clearAssetList();
-			updateAssetList(new_assets);
+			updateAssetList(django_json.assets);
+			updateTagList(django_json.tags)
 		})
-
 	})
 }
 
@@ -103,6 +104,18 @@ function updateAssetList(new_assets) {
 		asset_list.append(element);
 	})
 }	
+c = [];
+function updateTagList(current_tags) {
+	c = current_tags;
+	tags.forEach( tag => {
+		if (!current_tags.includes(parseInt(tag.getAttribute('data-pk')))) {
+			tag.classList.add('hidden');
+		} else {
+			console.log(`keeping tag number ${tag.getAttribute('data-pk')}`);
+			tag.classList.remove('hidden');
+		}
+	})
+}
 
 function getCookie(name) {
        var cookieValue = null;
