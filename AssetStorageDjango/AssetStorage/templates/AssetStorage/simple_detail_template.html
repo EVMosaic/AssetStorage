@@ -20,18 +20,7 @@
             <img src="{{asset.file.url}}">
 
         </div>
-
         <!-- end of main-asset -->
-        <!--<ul class="alt-view-container">-->
-            <!--<li class="arrow"> <span>&lt;</span> </li>-->
-
-            <!--<li class="alt-view">-->
-                <!--<img src="{{ asset.thumb.url }}">-->
-            <!--</li>-->
-
-            <!--<li class="arrow"> <span>&gt;</span> </li>-->
-        <!--</ul>-->
-        <!-- end of alt-view-container -->
     </div>
     <!-- end of asset-viewer -->
     <div class="asset-info-container">
@@ -59,7 +48,7 @@
         <!-- end of asset-info -->
         <h2 class="tag-header">Tags:</h2>
         <div class="tag-container">
-            {% for tag in asset.tags.all %}
+            {% for tag in tags %}
             <div class="tag"><span>{{tag.tag}}</span></div>
             {% endfor %}
             </div>

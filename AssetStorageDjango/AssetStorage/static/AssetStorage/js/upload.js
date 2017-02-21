@@ -11,7 +11,8 @@ closeButtons.forEach(button => button.addEventListener('click', removeTag));
 tagbox.addEventListener('click', addTag);
 upload.addEventListener('click', collectTags);
 
-//TODO change text and display after upload to show file accpeted
+//TODO upload animation [ ]
+//TODO change text and display after upload to show file accepted [ ]
 function triggerInput(e) {
 	e.preventDefault();
 	console.log('triggering input')

@@ -4,6 +4,7 @@ from django.core.files import File
 from AssetStorage import utilities
 
 
+# TODO add field to count references/update on save
 # Create your models here.
 class Tag(models.Model):
     tag = models.CharField(max_length=100, unique=True)
@@ -80,7 +81,7 @@ class SimpleAsset(models.Model):
             self.thumb = utilities.make_thumbnail(self.file , 75, 75)
             super(SimpleAsset, self).save(*args, **kwargs)
 
-
+# class SimpleAssetSerializer(serializers.ModelSerializer)
 
 
 class CompoundAsset(models.Model):
