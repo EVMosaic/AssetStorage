@@ -1,0 +1,77 @@
+{% extends 'AssetStorage/base.html' %}
+{% load staticfiles %}
+
+
+{% block head %}
+<link rel='stylesheet' type='text/css' href={% static 'AssetStorage/css/search.css' %} />
+
+<title>ML Asset Search</title>
+
+{%  endblock %}
+
+
+{% block content %}
+<nav>
+    <h1 class="asset-title"> Browse Assets </h1>
+    <div class="search-container">
+        <input type="search" class="search-box" placeholder="Search for asset..." />
+    </div>
+    <!--end of search-container-->
+    <div class="icon search"><span>&#128366;</span></div>
+    <div class="icon new-asset"> <span>+</span> </div>
+</nav>
+
+<div class="asset-type-list-container">
+    <ul class="asset-type-list">
+        <li class="asset-type"><span>Model</span></li>
+        <li class="asset-type"><span>Texture</span></li>
+        <li class="asset-type"><span>HDR</span></li>
+        <li class="asset-type"><span>Script</span></li>
+    </ul>
+</div>
+<!--end of asset-type-list-container-->
+
+<div class="content">
+    <div class="tag-container">
+        <form action="" method="post" id="tag-form">
+            {% csrf_token %}
+            <h2 class="tag-header"> Tags </h2>
+            <ul class="tag-list">
+                {% for tag in tags %}
+                <li class="tag" data-pk="{{tag.pk}}"> {{tag.tag}}: {{tag.asset_count}} </li>
+                {% endfor %}
+            </ul>
+            <input type="text" class="hidden" id="tag-list" name="tag-list">
+            <input type="submit" class="hidden" id="tag-submit" name="tag-submit">
+        </form>
+    </div>
+    <!--end of tag-container-->
+
+    <div class="asset-list">
+        {% for asset in assets %}
+        <div class="asset-item">
+            <a href="/simple/{{asset.pk}}">
+                <div class="asset-preview">
+                    <img src={{asset.thumb.url}}>
+                </div>
+            </a>
+            <div class="asset-info">
+                <p>
+                    <span class="asset-info-item">Asset Name: {{ asset.name }}</span>
+                    <span class="asset-info-item">Asset Location: {{ asset.file.path }}</span>
+                    <span class="asset-info-item">Asset Size: {{ asset.pretty_file_size }}</span>
+                </p>
+            </div>
+            <!--end of asset-info-->
+        </div>
+        <!--end of asset-item-->
+        {% endfor %}
+    </div>
+    <!--end of asset-list-->
+</div>
+<!-- End of content div -->
+
+{%  endblock %}
+{% block javascript %}
+<script src="{% static 'AssetStorage/js/search.js' %}"></script>
+{% endblock %}
