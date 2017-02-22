@@ -203,6 +203,19 @@ h1 {
   .tag:hover {
     background-color: crimson; }
 
+.static-tag {
+  color: #DDD;
+  background-color: crimson;
+  font-family: "Contrail One", cursive;
+  font-size: .8em;
+  margin: 4px;
+  padding: 5px 10px;
+  padding-top: 6px;
+  border: solid #DDD 2px;
+  flex: 0 0 auto;
+  text-align: center;
+  border-radius: 4px; }
+
 .selected {
   background-color: crimson;
   color: white;
@@ -231,12 +244,22 @@ h1 {
   flex: 3; }
   .asset-info p {
     padding: 20px;
+    padding-bottom: 0;
     font-family: "Josefin Sans", sans-serif;
     font-size: 1.25em; }
 
 .asset-info-item {
   display: block;
-  margin: 10px 0; }
+  margin: 10px 0;
+  word-break: break-word; }
+  .asset-info-item:last-child {
+    margin-bottom: 10px; }
+
+.asset-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  padding-left: 15px; }
 
 .hidden {
   display: none; }

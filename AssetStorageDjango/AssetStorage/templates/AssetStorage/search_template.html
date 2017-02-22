@@ -61,6 +61,12 @@
                     <span class="asset-info-item">Asset Location: {{ asset.file.path }}</span>
                     <span class="asset-info-item">Asset Size: {{ asset.pretty_file_size }}</span>
                 </p>
+                <div class="asset-tags">
+                    {% for tag in asset.tags.all %}
+                    <span class="static-tag"> {{tag.tag}} </span>
+                    {% endfor %}
+                </div>
+                <!--end of asset-tags-->
             </div>
             <!--end of asset-info-->
         </div>
