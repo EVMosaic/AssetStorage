@@ -78,6 +78,7 @@ class SearchView(ListView):
 
     def post(self, request, *args, **kwargs):
         print("posting!")
+
         print(request.POST['selected-tags'])
         # form_tags = request.POST['selected-tags'].split(':')
         # print(form_tags)

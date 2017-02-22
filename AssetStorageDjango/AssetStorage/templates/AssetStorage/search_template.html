@@ -38,7 +38,7 @@
             <h2 class="tag-header"> Tags </h2>
             <ul class="tag-list">
                 {% for tag in tags %}
-                <li class="tag" data-pk="{{tag.pk}}"> {{tag.tag}}: {{tag.asset_count}} </li>
+                <li class="tag" data-tag-pk="{{tag.pk}}"> {{tag.tag}}: {{tag.asset_count}} </li>
                 {% endfor %}
             </ul>
             <input type="text" class="hidden" id="selected-tags" name="selected-tags">
@@ -49,7 +49,7 @@
 
     <div class="asset-list">
         {% for asset in assets %}
-        <div class="asset-item">
+        <div class="asset-item" data-asset-pk="{{asset.pk}}">
             <a href="/simple/{{asset.pk}}">
                 <div class="asset-preview">
                     <img src={{asset.thumb.url}}>

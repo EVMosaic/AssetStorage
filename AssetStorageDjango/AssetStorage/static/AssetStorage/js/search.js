@@ -2,6 +2,7 @@ const tags = document.querySelectorAll('.tag');
 const tag_form = document.getElementById('tag-form');
 const selected_tags = document.getElementById('selected-tags');
 const asset_list = document.querySelector('.asset-list');
+const all_assets = document.querySelectorAll('.asset-item');
 
 tags.forEach( tag => tag.addEventListener('click', toggleSelected));
 
@@ -11,37 +12,52 @@ function toggleSelected(){
 	if (this.classList.contains('selected')) {
 		this.classList.remove('selected');
 		removeTag(this);
+		if (selected_tags.value === '') {
+			clearTags();
+			resetAssetList();
+		}
 	} else {
 		this.classList.add('selected');
 		appendTag(this);
+		console.log(selected_tags.value);
 		filterTags();
 	}
 }
 
 function appendTag(tag) {
+	console.log('appending');
+	console.log(selected_tags.value);
 	// selected_tags.value += tag.dataset.pk + ':';
-	selected_tags.value = tag.dataset.pk;
+	selected_tags.value = tag.dataset.tagPk;
+	console.log(selected_tags.value);
 }
 
 function removeTag(tag) {
 	// selected_tags.value = selected_tags.value.replace(tag.dataset.pk + ':', '');
 	selected_tags.value = '';
 }
-j = {}
+
+function clearTags() {
+	tags.forEach(tag => tag.classList.remove('hidden'));
+}
+
+function resetAssetList() {
+	all_assets.forEach(asset => asset.classList.remove('hidden'));
+}
 
 function filterTags() {
 	fetch('.', {
 		method: 'post',
 		credentials: 'include',
-		body: new FormData(tag_form )
+		body: new FormData(tag_form)
 	})
 	.then(function(response) {
 		response.json().then(function(json){
 			let django_json = JSON.parse(json);
-			j = django_json;
-			console.log(j);
+			console.log(django_json);
 			clearAssetList();
-			updateAssetList(django_json.assets);
+			// updateAssetList(django_json.assets);
+			hideAssets(django_json.assets);
 			updateTagList(django_json.tags)
 		})
 	})
@@ -49,7 +65,8 @@ function filterTags() {
 
 
 function clearAssetList() {
-	asset_list.innerHTML = '';
+	// asset_list.innerHTML = '';
+	all_assets.forEach( asset => asset.classList.add('hidden'));
 }
 
 
@@ -94,6 +111,16 @@ function buildAsset(json_asset) {
 	return asset_element;
 }
 
+function hideAssets(new_assets) {
+	asset_elements = []
+	new_assets.forEach( asset => {
+		// asset_elements.push(buildAsset(asset));
+		console.log(asset);
+		document.querySelector(`[data-asset-pk="${asset.pk}"]`).classList.remove('hidden');
+		console.log(document.querySelector(`[data-asset-pk="${asset.pk}"]`));
+	});
+}
+
 function updateAssetList(new_assets) {
 //think about looking into document fragments here?
 	asset_elements = []
@@ -104,18 +131,19 @@ function updateAssetList(new_assets) {
 		asset_list.append(element);
 	})
 }	
-c = [];
+
 function updateTagList(current_tags) {
-	c = current_tags;
 	tags.forEach( tag => {
-		if (!current_tags.includes(parseInt(tag.getAttribute('data-pk')))) {
+		if (!current_tags.includes(parseInt(tag.getAttribute('data-tag-pk')))) {
 			tag.classList.add('hidden');
 		} else {
-			console.log(`keeping tag number ${tag.getAttribute('data-pk')}`);
+			// console.log(`keeping tag number ${tag.getAttribute('data-pk')}`);
 			tag.classList.remove('hidden');
 		}
 	})
 }
+
+
 
 function getCookie(name) {
        var cookieValue = null;
