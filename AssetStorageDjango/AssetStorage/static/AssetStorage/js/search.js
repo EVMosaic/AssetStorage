@@ -3,8 +3,13 @@ const tag_form = document.getElementById('tag-form');
 const selected_tags = document.getElementById('selected-tags');
 const asset_list = document.querySelector('.asset-list');
 const all_assets = document.querySelectorAll('.asset-item');
+const reset_tags = document.querySelector('.reset-tags');
 
 tags.forEach( tag => tag.addEventListener('click', toggleSelected));
+reset_tags.addEventListener('click', function(){
+	clearTags();
+	resetAssetList();
+});
 
 function toggleSelected(){
 	console.log('toggling ' + this.textContent);
@@ -35,6 +40,8 @@ function removeTag(tag) {
 
 function clearTags() {
 	tags.forEach(tag => tag.classList.remove('hidden'));
+	tags.forEach(tag => tag.classList.remove('selected'));
+	selected_tags.value = '';
 }
 
 function resetAssetList() {

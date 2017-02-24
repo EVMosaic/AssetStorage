@@ -174,7 +174,7 @@ h1 {
   border-bottom-right-radius: 20px;
   align-self: flex-start; }
 
-.tag-header {
+.tag-title {
   text-align: center;
   font-size: 30px;
   font-family: "Josefin Sans", sans-serif;
@@ -189,6 +189,26 @@ h1 {
   padding: 10px;
   padding-left: 6px; }
 
+.reset-tags {
+  text-align: center;
+  border: solid #DDD 3px;
+  color: #DDD;
+  padding: 7px 0;
+  border-radius: 5px;
+  flex: 0 0 80%;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-family: "Contrail One", cursive;
+  font-size: 22px; }
+  .reset-tags:hover {
+    color: crimson;
+    border-color: crimson;
+    cursor: pointer; }
+  .reset-tags:active {
+    color: #eb1f48;
+    border-color: #eb1f48; }
+
 .tag {
   color: #DDD;
   font-family: "Contrail One", cursive;
@@ -202,6 +222,9 @@ h1 {
   cursor: pointer; }
   .tag:hover {
     background-color: crimson; }
+  .tag:active {
+    background-color: #eb1f48;
+    color: white; }
 
 .static-tag {
   color: #DDD;

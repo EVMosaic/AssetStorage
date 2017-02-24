@@ -35,8 +35,11 @@
     <div class="tag-container">
         <form action="" method="post" id="tag-form">
             {% csrf_token %}
-            <h2 class="tag-header"> Tags </h2>
+            <div class="tag-header">
+                <h2 class="tag-title"> Tags </h2>
+            </div>
             <ul class="tag-list">
+                <div class="reset-tags"> <span> Reset </span> </div>
                 {% for tag in tags %}
                 <li class="tag" data-tag-pk="{{tag.pk}}"> {{tag.tag}}: {{tag.asset_count}} </li>
                 {% endfor %}
