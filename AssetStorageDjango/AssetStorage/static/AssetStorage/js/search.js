@@ -12,6 +12,7 @@ function toggleSelected(){
 	if (this.classList.contains('selected')) {
 		this.classList.remove('selected');
 		removeTag(this);
+		filterTags();
 		if (selected_tags.value === '') {
 			clearTags();
 			resetAssetList();

@@ -82,12 +82,25 @@ class SearchView(ListView):
         print(request.POST['selected-tags'])
         # form_tags = request.POST['selected-tags'].split(':')
         # print(form_tags)
-        tags = request.POST['selected-tags'].split(':')[0]
-        selected_tag = Tag.objects.get(pk=tags)
-        related_assets = selected_tag.simple_assets.all().order_by('name')
-        # related_assets =
-        s.filter(tags__tag__in=['first', 'second']).annotate(num_tags=Count('tags')).filter(num_tags=2)
-        #^ this does some magic that i cant completely understand but it seems to work...
+        tag = request.POST['selected-tags'].split(':')[0]
+        selected_tag = Tag.objects.get(pk=tag)
+        print(selected_tag)
+        requested_tags = list(filter(None,request.POST['selected-tags'].split(':')))
+        print(requested_tags)
+        selected_tags = Tag.objects.filter(pk__in=requested_tags)
+        print(selected_tags)
+        related_assets = SimpleAsset.objects.filter(tags__pk__in=requested_tags)\
+                                      .annotate(num_tags=Count('tags'))\
+                                      .filter(num_tags=len(requested_tags))\
+                                      .order_by('name')
+        # ^ this does some magic that i cant completely understand but it seems to work...
+        # it seems to be counting the number of matches, but i dont understand why
+        # the Count('tags') isnt counting the number of tags on the model
+        # regardless this is used to filter on ALL tags in a list instead of ANY
+
+        # related_assets = selected_tag.simple_assets.all().order_by('name')
+        # old way only works on one tag at a time
+
         tagged_assets = []
         related_tags = []
         for asset in related_assets:
