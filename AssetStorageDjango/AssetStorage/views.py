@@ -77,18 +77,8 @@ class SearchView(ListView):
         return context
 
     def post(self, request, *args, **kwargs):
-        print("posting!")
-
-        print(request.POST['selected-tags'])
-        # form_tags = request.POST['selected-tags'].split(':')
-        # print(form_tags)
-        tag = request.POST['selected-tags'].split(':')[0]
-        selected_tag = Tag.objects.get(pk=tag)
-        print(selected_tag)
+        # should probably move this all into an ajax check and extract into own function
         requested_tags = list(filter(None,request.POST['selected-tags'].split(':')))
-        print(requested_tags)
-        selected_tags = Tag.objects.filter(pk__in=requested_tags)
-        print(selected_tags)
         related_assets = SimpleAsset.objects.filter(tags__pk__in=requested_tags)\
                                       .annotate(num_tags=Count('tags'))\
                                       .filter(num_tags=len(requested_tags))\
@@ -98,11 +88,9 @@ class SearchView(ListView):
         # the Count('tags') isnt counting the number of tags on the model
         # regardless this is used to filter on ALL tags in a list instead of ANY
 
-        # related_assets = selected_tag.simple_assets.all().order_by('name')
-        # old way only works on one tag at a time
-
         tagged_assets = []
         related_tags = []
+
         for asset in related_assets:
             print(asset)
             tags = asset.tags.all()
@@ -116,23 +104,10 @@ class SearchView(ListView):
                 'size': asset.pretty_file_size()
             }
             tagged_assets.append(object_dict)
+
         data = {
             'assets' : tagged_assets,
             'tags'   : list(set(related_tags))
         }
-        # data = serializers.serialize('json', related_assets)
+
         return JsonResponse(json.dumps(data), safe=False)
-
-
-def searchAPI(request, *args, **kwargs):
-    print('entering search api')
-    print(args)
-    print(kwargs)
-    print(request)
-    print(request.POST)
-    return JsonResponse({'kitten' : 'goldberry'})
-
-# class searchAPI(FormView):
-#     pass
-
-

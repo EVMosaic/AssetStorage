@@ -12,30 +12,25 @@ function toggleSelected(){
 	if (this.classList.contains('selected')) {
 		this.classList.remove('selected');
 		removeTag(this);
-		filterTags();
 		if (selected_tags.value === '') {
 			clearTags();
 			resetAssetList();
+			return;
 		}
+		filterTags();
 	} else {
 		this.classList.add('selected');
 		appendTag(this);
-		console.log(selected_tags.value);
 		filterTags();
 	}
 }
 
 function appendTag(tag) {
-	console.log('appending');
-	console.log(selected_tags.value);
 	selected_tags.value += tag.dataset.tagPk + ':';
-	// selected_tags.value = tag.dataset.tagPk;
-	console.log(selected_tags.value);
 }
 
 function removeTag(tag) {
 	selected_tags.value = selected_tags.value.replace(tag.dataset.tagPk + ':', '');
-	// selected_tags.value = '';
 }
 
 function clearTags() {
@@ -57,7 +52,6 @@ function filterTags() {
 			let django_json = JSON.parse(json);
 			console.log(django_json);
 			clearAssetList();
-			// updateAssetList(django_json.assets);
 			hideAssets(django_json.assets);
 			updateTagList(django_json.tags)
 		})
@@ -66,7 +60,6 @@ function filterTags() {
 
 
 function clearAssetList() {
-	// asset_list.innerHTML = '';
 	all_assets.forEach( asset => asset.classList.add('hidden'));
 }
 
@@ -115,8 +108,6 @@ function buildAsset(json_asset) {
 function hideAssets(new_assets) {
 	asset_elements = []
 	new_assets.forEach( asset => {
-		// asset_elements.push(buildAsset(asset));
-		console.log(asset);
 		document.querySelector(`[data-asset-pk="${asset.pk}"]`).classList.remove('hidden');
 		console.log(document.querySelector(`[data-asset-pk="${asset.pk}"]`));
 	});
@@ -138,7 +129,6 @@ function updateTagList(current_tags) {
 		if (!current_tags.includes(parseInt(tag.getAttribute('data-tag-pk')))) {
 			tag.classList.add('hidden');
 		} else {
-			// console.log(`keeping tag number ${tag.getAttribute('data-pk')}`);
 			tag.classList.remove('hidden');
 		}
 	})
