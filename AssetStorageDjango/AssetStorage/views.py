@@ -82,10 +82,12 @@ class SearchView(ListView):
         print(request.POST['selected-tags'])
         # form_tags = request.POST['selected-tags'].split(':')
         # print(form_tags)
-        tags = request.POST['selected-tags']
+        tags = request.POST['selected-tags'].split(':')[0]
         selected_tag = Tag.objects.get(pk=tags)
         related_assets = selected_tag.simple_assets.all().order_by('name')
-        print(Tag.objects.get(pk=request.POST['selected-tags']).simple_assets.all())
+        # related_assets =
+        s.filter(tags__tag__in=['first', 'second']).annotate(num_tags=Count('tags')).filter(num_tags=2)
+        #^ this does some magic that i cant completely understand but it seems to work...
         tagged_assets = []
         related_tags = []
         for asset in related_assets:
@@ -119,3 +121,5 @@ def searchAPI(request, *args, **kwargs):
 
 # class searchAPI(FormView):
 #     pass
+
+

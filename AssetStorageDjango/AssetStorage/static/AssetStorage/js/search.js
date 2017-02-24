@@ -27,14 +27,14 @@ function toggleSelected(){
 function appendTag(tag) {
 	console.log('appending');
 	console.log(selected_tags.value);
-	// selected_tags.value += tag.dataset.pk + ':';
-	selected_tags.value = tag.dataset.tagPk;
+	selected_tags.value += tag.dataset.tagPk + ':';
+	// selected_tags.value = tag.dataset.tagPk;
 	console.log(selected_tags.value);
 }
 
 function removeTag(tag) {
-	// selected_tags.value = selected_tags.value.replace(tag.dataset.pk + ':', '');
-	selected_tags.value = '';
+	selected_tags.value = selected_tags.value.replace(tag.dataset.tagPk + ':', '');
+	// selected_tags.value = '';
 }
 
 function clearTags() {
