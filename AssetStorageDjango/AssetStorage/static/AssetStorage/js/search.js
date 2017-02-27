@@ -14,12 +14,16 @@ reset_tags.addEventListener('click', function(){
 	resetAssetList();
 });
 search_button.addEventListener('click', search);
+search_box.addEventListener('input', search);
+
+function searchLog(e) {
+	console.log(`searching for ${e.target.value}`);
+	search(e);
+}
 
 function search(e) {
 	e.preventDefault();
-	console.log(search_form);
-	console.log(new FormData(search_form));
-
+	console.log(`searching for ${search_box.value}`);
 	fetch('.', {
 		method: 'post',
 		credentials: 'include',
@@ -28,12 +32,14 @@ function search(e) {
 	.then(function(response) {
 		response.json().then(function(json){
 			let django_json = JSON.parse(json);
-			console.log(django_json);
+			// console.log(`found ${django_json.assets.length} assets`);
+			console.log(django_json.assets);
 			clearAssetList();
+			if (!django_json.assets) {
+				return;
+			}
 			hideAssets(django_json.assets);
 			updateTagList(django_json.tags)
-		console.log('made a round trip');
-		console.log(response);
 		})
 	})
 }
@@ -146,7 +152,7 @@ function hideAssets(new_assets) {
 	asset_elements = []
 	new_assets.forEach( asset => {
 		document.querySelector(`[data-asset-pk="${asset.pk}"]`).classList.remove('hidden');
-		console.log(document.querySelector(`[data-asset-pk="${asset.pk}"]`));
+		// console.log(document.querySelector(`[data-asset-pk="${asset.pk}"]`));
 	});
 }
 

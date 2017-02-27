@@ -108,6 +108,8 @@ class SearchView(ListView):
         return JsonResponse(data, safe=False)
 
     def queryset_to_jquery(self, queryset):
+        if len(queryset) == 0:
+            return json.dumps({})
         tagged_assets = []
         related_tags = []
         for asset in queryset:

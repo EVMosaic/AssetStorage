@@ -33,9 +33,11 @@ class TagAdmin(admin.ModelAdmin):
     inlines = [TaggedAssetsInline]
     fields = ['tag']
 
+class SimpleAssetAdmin(admin.ModelAdmin):
+    list_display = ['name','file']
 
 admin.site.register(Asset, AssetAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(PreviewImage)
-admin.site.register(SimpleAsset)
+admin.site.register(SimpleAsset, SimpleAssetAdmin)
 admin.site.register(CompoundAsset)
