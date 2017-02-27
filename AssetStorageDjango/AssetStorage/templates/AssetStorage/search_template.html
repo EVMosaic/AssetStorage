@@ -14,11 +14,18 @@
 <nav>
     <h1 class="asset-title"> Browse Assets </h1>
     <div class="search-container">
-        <input type="search" class="search-box" placeholder="Search for asset..." />
+        <form action="" method="post" id="search-form">
+            {% csrf_token %}
+            <!--<div class="search-bar">-->
+                <input type="search" class="search-box" placeholder="Search for asset..." name="search-box"/><!--
+                INLINE WHITESPACE REMOVAL DO NOT DELETE
+                --><button class="search-button">5</button>
+            <!--</div>-->
+        </form>
     </div>
     <!--end of search-container-->
     <div class="icon search"><span>&#128366;</span></div>
-    <div class="icon new-asset"> <span>+</span> </div>
+    <div class="icon new-asset"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
 </nav>
 
 <div class="asset-type-list-container">

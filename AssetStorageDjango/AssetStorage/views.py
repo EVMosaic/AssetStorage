@@ -68,7 +68,6 @@ class SearchView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(SearchView, self).get_context_data(**kwargs)
-        print('getting context data')
         # print(str(context['assets'].count()) + ' assets with files')
         context['assets'] = SimpleAsset.objects.exclude(file='').order_by('name')
         # print(str(context['assets'].count()) + ' assets without files')
@@ -78,21 +77,40 @@ class SearchView(ListView):
 
     def post(self, request, *args, **kwargs):
         # should probably move this all into an ajax check and extract into own function
-        requested_tags = list(filter(None,request.POST['selected-tags'].split(':')))
-        related_assets = SimpleAsset.objects.filter(tags__pk__in=requested_tags)\
-                                      .annotate(num_tags=Count('tags'))\
-                                      .filter(num_tags=len(requested_tags))\
-                                      .order_by('name')
+        # for item in request.environ:
+        #     print(str(item) + ":" + str(request.environ[item]));
+        # print(request.body)
+        if request.is_ajax():
+            print("found an ajax request")
+        # return self.filter_tags(request)
+        return self.search_by_name(request)
+
+    def search_by_name(self, request):
+        search_query = request.POST['search-box']
+        print('searching for: ' + search_query)
+        search_results = SimpleAsset.objects.filter(name__icontains=search_query)
+        print(search_results)
+        data = self.queryset_to_jquery(search_results)
+
+        return JsonResponse(data, safe=False)
+
+    def filter_tags(self, request):
+        requested_tags = list(filter(None, request.POST['selected-tags'].split(':')))
+        related_assets = SimpleAsset.objects.filter(tags__pk__in=requested_tags) \
+            .annotate(num_tags=Count('tags')) \
+            .filter(num_tags=len(requested_tags)) \
+            .order_by('name')
         # ^ this does some magic that i cant completely understand but it seems to work...
         # it seems to be counting the number of matches, but i dont understand why
         # the Count('tags') isnt counting the number of tags on the model
         # regardless this is used to filter on ALL tags in a list instead of ANY
+        data = self.queryset_to_jquery(related_assets)
+        return JsonResponse(data, safe=False)
 
+    def queryset_to_jquery(self, queryset):
         tagged_assets = []
         related_tags = []
-
-        for asset in related_assets:
-            print(asset)
+        for asset in queryset:
             tags = asset.tags.all()
             for item in tags:
                 related_tags.append(item.pk)
@@ -104,10 +122,8 @@ class SearchView(ListView):
                 'size': asset.pretty_file_size()
             }
             tagged_assets.append(object_dict)
-
         data = {
-            'assets' : tagged_assets,
-            'tags'   : list(set(related_tags))
+            'assets': tagged_assets,
+            'tags': list(set(related_tags))
         }
-
-        return JsonResponse(json.dumps(data), safe=False)
+        return json.dumps(data)

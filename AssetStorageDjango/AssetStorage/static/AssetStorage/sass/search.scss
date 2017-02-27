@@ -23,7 +23,7 @@ h1 {
 }
 
 .asset-title {
-	flex: 1;
+	flex: 0 0 auto;
 }
 
 .search-container {
@@ -32,20 +32,41 @@ h1 {
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
+	font-family: $label-font;
+	color: $background-color;
 }
 
 .search-box {
 	width: 500px;
-	// margin: 15px;
-	// margin-bottom: 5px;
-	font-family: $label-font;
-	font-size: 1.25em;
-	padding: 5px;
-	// flex: 1 1 200px;
-	// align-self: center;
+	padding: 7px;
+	font-size: 1.1em;
 	border: solid $background-color 3px;
 	border-radius: 10px;
 	margin-bottom: 4px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-right: 0;
+}
+
+.search-button {
+	background-color: $border-color;
+	padding: 7px;
+	border-radius: 10px;
+	font-size: 1.1em;
+	margin-bottom: 4px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border: solid $background-color 3px;
+	color: black;
+	cursor: pointer;
+
+	&:hover {
+		background-color: lighten($border-color, 3%);
+	}
+
+	&:active {
+		background-color: lighten($border-color, 10%);
+	}
 }
 
 .asset-nav {
@@ -83,6 +104,9 @@ h1 {
 
 .tag-header {
 	// display: block;
+}
+
+.tag-title {	
 	text-align: center;
 	font-size: 30px;
 	font-family: $label-font;
@@ -104,6 +128,30 @@ h1 {
 	padding-left: 6px;
 }
 
+.reset-tags {
+	text-align: center;
+    border: solid $border-color 3px;
+    color: $border-color;
+    padding: 7px 0;
+    border-radius: 5px;
+    flex: 0 0 80%;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: $button-font;
+    font-size: 22px;
+
+    &:hover {
+    	color: $main-color;
+    	border-color: $main-color;
+    	cursor: pointer;
+    }
+
+    &:active {
+    	color: lighten($main-color, 5%);
+    	border-color: lighten($main-color, 5%);
+    }
+}
 
 .tag {
 	color: $border-color;
@@ -119,6 +167,11 @@ h1 {
 
 	&:hover {
 		background-color: $main-color;
+	}
+
+	&:active {
+		background-color:lighten($main-color, 5%);
+		color: white;
 	}
 }
 

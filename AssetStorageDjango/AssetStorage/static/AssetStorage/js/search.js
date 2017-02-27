@@ -4,12 +4,58 @@ const selected_tags = document.getElementById('selected-tags');
 const asset_list = document.querySelector('.asset-list');
 const all_assets = document.querySelectorAll('.asset-item');
 const reset_tags = document.querySelector('.reset-tags');
+const search_box = document.querySelector('.search-box');
+const search_button = document.querySelector('.search-button');
+const search_form = document.getElementById('search-form');
 
 tags.forEach( tag => tag.addEventListener('click', toggleSelected));
 reset_tags.addEventListener('click', function(){
 	clearTags();
 	resetAssetList();
 });
+search_button.addEventListener('click', search);
+
+function search(e) {
+	e.preventDefault();
+	console.log(search_form);
+	console.log(new FormData(search_form));
+
+	fetch('.', {
+		method: 'post',
+		credentials: 'include',
+		body: new FormData(search_form)
+	})
+	.then(function(response) {
+		response.json().then(function(json){
+			let django_json = JSON.parse(json);
+			console.log(django_json);
+			clearAssetList();
+			hideAssets(django_json.assets);
+			updateTagList(django_json.tags)
+		console.log('made a round trip');
+		console.log(response);
+		})
+	})
+}
+
+function filterTags() {
+	fetch('.', {
+		method: 'post',
+		credentials: 'include',
+		body: new FormData(tag_form)
+	})
+	.then(function(response) {
+		response.json().then(function(json){
+			let django_json = JSON.parse(json);
+			console.log(django_json);
+			clearAssetList();
+			hideAssets(django_json.assets);
+			updateTagList(django_json.tags)
+		})
+	})
+}
+
+
 
 function toggleSelected(){
 	console.log('toggling ' + this.textContent);
@@ -48,22 +94,6 @@ function resetAssetList() {
 	all_assets.forEach(asset => asset.classList.remove('hidden'));
 }
 
-function filterTags() {
-	fetch('.', {
-		method: 'post',
-		credentials: 'include',
-		body: new FormData(tag_form)
-	})
-	.then(function(response) {
-		response.json().then(function(json){
-			let django_json = JSON.parse(json);
-			console.log(django_json);
-			clearAssetList();
-			hideAssets(django_json.assets);
-			updateTagList(django_json.tags)
-		})
-	})
-}
 
 
 function clearAssetList() {
@@ -142,7 +172,7 @@ function updateTagList(current_tags) {
 }
 
 
-
+// I dont think this is actually being used atm
 function getCookie(name) {
        var cookieValue = null;
        if (document.cookie && document.cookie != '') {

@@ -23,6 +23,9 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline; }
 
+input, button {
+  outline: none; }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -129,23 +132,43 @@ h1 {
   flex: 0 0 87px; }
 
 .asset-title {
-  flex: 1; }
+  flex: 0 0 auto; }
 
 .search-container {
   flex: 2 1 200px;
   text-align: center;
   display: flex;
   justify-content: center;
-  align-items: flex-end; }
+  align-items: flex-end;
+  font-family: "Josefin Sans", sans-serif;
+  color: #333; }
 
 .search-box {
   width: 500px;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 1.25em;
-  padding: 5px;
+  padding: 7px;
+  font-size: 1.1em;
   border: solid #333 3px;
   border-radius: 10px;
-  margin-bottom: 4px; }
+  margin-bottom: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0; }
+
+.search-button {
+  background-color: #DDD;
+  padding: 7px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  margin-bottom: 4px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: solid #333 3px;
+  color: black;
+  cursor: pointer; }
+  .search-button:hover {
+    background-color: #e5e5e5; }
+  .search-button:active {
+    background-color: #f7f7f7; }
 
 .asset-nav {
   background-color: crimson;
