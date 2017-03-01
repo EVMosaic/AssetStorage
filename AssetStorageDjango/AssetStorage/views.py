@@ -78,12 +78,14 @@ class SearchView(ListView):
     def post(self, request, *args, **kwargs):
         # should probably move this all into an ajax check and extract into own function
         # for item in request.environ:
-        #     print(str(item) + ":" + str(request.environ[item]));
-        # print(request.body)
-        if request.is_ajax():
-            print("found an ajax request")
-        # return self.filter_tags(request)
-        return self.search_by_name(request)
+
+        command = request.POST['command']
+
+        if command == 'search':
+            return self.search_by_name(request)
+
+        if command == 'tag':
+            return self.filter_tags(request)
 
     def search_by_name(self, request):
         search_query = request.POST['search-box']

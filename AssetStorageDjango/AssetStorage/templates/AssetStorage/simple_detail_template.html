@@ -11,8 +11,8 @@
 {% block content %}
 <nav>
     <h1 class="asset-title"> {{asset.name}} </h1>
-    <div class="icon search"><span>&#128366;</span></div>
-    <div class="icon new-asset"> <span>+</span> </div>
+    <a href="/" class="icon search"><span>&#128366;</span></a>
+    <a href="/upload" class="icon new-asset"> <i class="fa fa-plus" aria-hidden="true"></i> </a>
 </nav>
 <div class="content">
     <div class="asset-viewer">
@@ -40,10 +40,10 @@
                 <span class="asset-info-data">{{ asset.pretty_file_size }}</span>
             </span>
 
-            <div class="main-download">
+            <a href="{{ asset.file.path }}" class="main-download" download>
                 <span class="main-download-text"> Download Asset </span>
-                <span class="main-down-arrow"> &#8681; </span>
-            </div>
+                <span class="main-down-arrow"> <i class="fa fa-download" aria-hidden="true"></i> </span>
+            </a>
         </div>
         <!-- end of asset-info -->
         <h2 class="tag-header">Tags:</h2>

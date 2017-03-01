@@ -24,6 +24,9 @@ function searchLog(e) {
 function search(e) {
 	e.preventDefault();
 	console.log(`searching for ${search_box.value}`);
+	if (search_box.value === ''){
+		return;
+	}
 	fetch('.', {
 		method: 'post',
 		credentials: 'include',

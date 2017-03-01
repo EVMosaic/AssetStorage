@@ -16,16 +16,17 @@
     <div class="search-container">
         <form action="" method="post" id="search-form">
             {% csrf_token %}
-            <!--<div class="search-bar">-->
-                <input type="search" class="search-box" placeholder="Search for asset..." name="search-box"/><!--
-                INLINE WHITESPACE REMOVAL DO NOT DELETE
-                --><button class="search-button">5</button>
-            <!--</div>-->
+            <input type="text" class="hidden" value="search" name="command"/>
+            <input type="search" class="search-box" placeholder="Search for asset..." name="search-box"/><!--
+            INLINE WHITESPACE FIX DO NOT DELETE
+            --><button class="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
     </div>
     <!--end of search-container-->
-    <div class="icon search"><span>&#128366;</span></div>
-    <div class="icon new-asset"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+    <!--<a href="/"><div class="icon search"><span>&#128366;</span></div></a>-->
+    <!--<a href="/upload">-->
+        <a href="/upload" class="icon new-asset"> <i class="fa fa-plus" aria-hidden="true"></i> </a>
+    <!--</a>-->
 </nav>
 
 <div class="asset-type-list-container">
@@ -41,6 +42,7 @@
 <div class="content">
     <div class="tag-container">
         <form action="" method="post" id="tag-form">
+            <input type="text" class="hidden" value="tag" name="command"/>
             {% csrf_token %}
             <div class="tag-header">
                 <h2 class="tag-title"> Tags </h2>
@@ -48,7 +50,8 @@
             <ul class="tag-list">
                 <div class="reset-tags"> <span> Reset </span> </div>
                 {% for tag in tags %}
-                <li class="tag" data-tag-pk="{{tag.pk}}"> {{tag.tag}}: {{tag.asset_count}} </li>
+                <!--<li class="tag" data-tag-pk="{{tag.pk}}"> {{tag.tag}}: {{tag.asset_count}} </li>-->
+                <li class="tag" data-tag-pk="{{tag.pk}}"> {{tag.tag}} </li>
                 {% endfor %}
             </ul>
             <input type="text" class="hidden" id="selected-tags" name="selected-tags">
