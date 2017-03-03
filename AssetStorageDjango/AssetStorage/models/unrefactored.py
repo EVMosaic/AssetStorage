@@ -1,7 +1,8 @@
 from django.db import models
-from .utilities import convert_size
+
 from .asset_data import AssetData
 from .tag import Tag
+
 
 class CompoundAsset(models.Model):
     name = models.CharField(max_length=200)

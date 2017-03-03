@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm, inlineformset_factory
 
 from .models import *
-
+from .helpers.choices import *
 #flag for deletion
 # class AssetForm(ModelForm):
 #     class Meta:
@@ -39,14 +39,22 @@ class TagField(forms.TextInput):
                 new_tag.save()
         return Tag.objects.filter(tag__in=split_tags)
 
+
 class SimpleAssetForm(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(SimpleAssetForm, self).__init__(*args, **kwargs)
+        self.fields['asset_type'].choices = ASSET_TYPE_CHOICES
+
+
     class Meta:
         model = AssetData
-        fields = ['name', 'file', 'tags']
+        fields = ['name', 'file', 'tags', 'asset_type']
 
         labels = {
             'name' : 'Asset Name:',
         }
+
         widgets = {
             'name' : forms.TextInput(attrs = {'placeholder' : 'Enter Name of Asset...',
                                               'class' : 'upload-item',
@@ -56,7 +64,9 @@ class SimpleAssetForm(ModelForm):
                                               }),
             'tags' : TagField(attrs = {'id' : 'asset-tags',
                                        'class' : 'hidden'
-                                      }),
+                                       }),
+            'asset_type' : forms.Select(attrs = { 'id' : 'asset-type'} )
+
         }
 
 # SimpleAssetFormSet = inlineformset_factory(CompoundAsset, SimpleAsset, form=SimpleAssetForm, extra=3)
